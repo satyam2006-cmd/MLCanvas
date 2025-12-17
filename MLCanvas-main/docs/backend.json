@@ -1,0 +1,259 @@
+{
+  "entities": {
+    "Dataset": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Dataset",
+      "type": "object",
+      "description": "Represents a dataset uploaded by the user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the dataset."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User who uploaded the dataset. (Relationship: User 1:N Dataset)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the dataset."
+        },
+        "uploadDate": {
+          "type": "string",
+          "description": "Date and time when the dataset was uploaded.",
+          "format": "date-time"
+        },
+        "fileLocation": {
+          "type": "string",
+          "description": "The location where the dataset file is stored."
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional description of the dataset."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "name",
+        "uploadDate",
+        "fileLocation"
+      ]
+    },
+    "Model": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Model",
+      "type": "object",
+      "description": "Represents a trained machine learning model.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the model."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User who trained the model. (Relationship: User 1:N Model)"
+        },
+        "datasetId": {
+          "type": "string",
+          "description": "Reference to Dataset used to train the model. (Relationship: Dataset 1:N Model)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the model."
+        },
+        "algorithm": {
+          "type": "string",
+          "description": "Algorithm used for training the model (e.g., Linear Regression, Logistic Regression)."
+        },
+        "trainingDate": {
+          "type": "string",
+          "description": "Date and time when the model was trained.",
+          "format": "date-time"
+        },
+        "modelLocation": {
+          "type": "string",
+          "description": "The location where the trained model is stored."
+        },
+        "parameters": {
+          "type": "string",
+          "description": "JSON string containing the model parameters."
+        },
+        "metrics": {
+          "type": "string",
+          "description": "JSON string containing the model evaluation metrics."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "datasetId",
+        "name",
+        "algorithm",
+        "trainingDate",
+        "modelLocation"
+      ]
+    },
+    "Experiment": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Experiment",
+      "type": "object",
+      "description": "Represents a machine learning experiment.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the experiment."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User who created the experiment. (Relationship: User 1:N Experiment)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the experiment."
+        },
+        "creationDate": {
+          "type": "string",
+          "description": "Date and time when the experiment was created.",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the experiment."
+        },
+        "modelIds": {
+          "type": "array",
+          "description": "References to Models used in the experiment. (Relationship: Model N:N Experiment)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "name",
+        "creationDate"
+      ]
+    },
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the ML Studio platform.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the user.",
+          "format": "email"
+        },
+        "username": {
+          "type": "string",
+          "description": "Username of the user."
+        },
+        "registrationDate": {
+          "type": "string",
+          "description": "Date and time when the user registered.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "username",
+        "registrationDate"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores user profiles. Access is restricted to the user themselves.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/datasets/{datasetId}",
+        "definition": {
+          "entityName": "Dataset",
+          "schema": {
+            "$ref": "#/backend/entities/Dataset"
+          },
+          "description": "Stores datasets uploaded by a specific user. Includes denormalized 'userId' for authorization independence.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            },
+            {
+              "name": "datasetId",
+              "description": "The unique identifier of the dataset."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/models/{modelId}",
+        "definition": {
+          "entityName": "Model",
+          "schema": {
+            "$ref": "#/backend/entities/Model"
+          },
+          "description": "Stores machine learning models trained by a specific user. Includes denormalized 'userId' for authorization independence.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            },
+            {
+              "name": "modelId",
+              "description": "The unique identifier of the model."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/experiments/{experimentId}",
+        "definition": {
+          "entityName": "Experiment",
+          "schema": {
+            "$ref": "#/backend/entities/Experiment"
+          },
+          "description": "Stores machine learning experiments created by a specific user. Includes denormalized 'userId' for authorization independence.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            },
+            {
+              "name": "experimentId",
+              "description": "The unique identifier of the experiment."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to securely manage user data, datasets, models, and experiments within the ML Studio platform, adhering to the principles of Authorization Independence, Structural Segregation, and Access Modeling.  Authorization Independence is achieved by storing the `userId` directly within the Dataset, Model and Experiment documents, removing the need for complex `get()` calls in security rules and allowing atomic operations. Path-based ownership (`/users/{userId}/datasets/{datasetId}`) is used for private data, ensuring clear ownership and simplified security rules. All documents within a collection share the same security requirements, following the principle of structural segregation.\n\nSpecifically:\n\n*   **/users/{userId}**: Stores user profiles, with access restricted to the user themselves. This follows Path-Based ownership.\n*   **/users/{userId}/datasets/{datasetId}**: Stores datasets owned by a specific user. The `dataset.userId` field allows for independent authorization, ensuring only the owner can modify a dataset. List operations are secured because only datasets belonging to the authenticated user are accessible.\n*   **/users/{userId}/models/{modelId}**: Stores models trained by a specific user.  The `model.userId` field allows for independent authorization. List operations are secured because only models belonging to the authenticated user are accessible.\n*   **/users/{userId}/experiments/{experimentId}**: Stores experiments created by a specific user. The `experiment.userId` field enables independent authorization. List operations are secured because only experiments belonging to the authenticated user are accessible.\n\nThis structure ensures that all data is secured and easily accessible while maintaining the integrity of the system."
+  }
+}
