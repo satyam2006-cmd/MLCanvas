@@ -38,11 +38,13 @@ const generateColabCode = (
   summary: PreprocessingSummary,
   featureNames: string[],
   targetVariable?: string,
+  modelNames?: string[],
 ): Record<string, string> => {
   const targetCol = targetVariable || "target";
   const baseCode = `# Import necessary libraries
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
 # Load your dataset
@@ -56,7 +58,150 @@ y = df[${JSON.stringify(targetCol)}]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 `;
 
-  return {
+  const plotCode = `\n# Plot Predicted vs Actual
+plt.figure(figsize=(10, 6))
+plt.scatter(y_test, y_pred, alpha=0.6)
+plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--', lw=2)
+plt.xlabel('Actual ${targetCol}')
+plt.ylabel('Predicted ${targetCol}')
+plt.title('Predicted vs Actual Values')
+plt.show()`;
+
+  const codes: Record<string, string> = {
+    "Logistic Regression": `${baseCode}
+from sklearn.linear_model import LogisticRegression
+
+# Initialize and train the model
+model = LogisticRegression(random_state=42, max_iter=1000)
+model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+from sklearn.metrics import accuracy_score, classification_report
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("\\nClassification Report:")
+print(classification_report(y_test, y_pred))`,
+
+    "Linear Regression": `${baseCode}
+from sklearn.linear_model import LinearRegression
+
+# Initialize and train the model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+from sklearn.metrics import mean_squared_error, r2_score
+print("R² Score:", r2_score(y_test, y_pred))
+print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
+${plotCode}`,
+
+    "Ridge Regression": `${baseCode}
+from sklearn.linear_model import Ridge
+
+# Initialize and train the model
+model = Ridge(alpha=1.0, random_state=42)
+model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+from sklearn.metrics import mean_squared_error, r2_score
+print("R² Score:", r2_score(y_test, y_pred))
+print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
+${plotCode}`,
+
+    "Lasso Regression": `${baseCode}
+from sklearn.linear_model import Lasso
+
+# Initialize and train the model
+model = Lasso(alpha=0.1, random_state=42)
+model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+from sklearn.metrics import mean_squared_error, r2_score
+print("R² Score:", r2_score(y_test, y_pred))
+print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
+${plotCode}`,
+
+    ElasticNet: `${baseCode}
+from sklearn.linear_model import ElasticNet
+
+# Initialize and train the model
+model = ElasticNet(alpha=0.1, l1_ratio=0.5, random_state=42)
+model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+from sklearn.metrics import mean_squared_error, r2_score
+print("R² Score:", r2_score(y_test, y_pred))
+print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
+${plotCode}`,
+
+    "Support Vector Machine": `${baseCode}
+from sklearn.svm import SVR${summary.problemType === "classification" ? " as SVM" : ""}
+from sklearn.preprocessing import StandardScaler
+
+# Scale the data
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Initialize and train the model
+model = SVR(kernel='rbf', C=100, gamma='scale')
+model.fit(X_train_scaled, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test_scaled)
+
+# Evaluate the model
+from sklearn.metrics import mean_squared_error, r2_score
+print("R² Score:", r2_score(y_test, y_pred))
+print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
+${plotCode}`,
+
+    "K-Nearest Neighbors": `${baseCode}
+from sklearn.neighbors import KNeighborsRegressor${summary.problemType === "classification" ? " as KNN" : ""}
+
+# Initialize and train the model
+model = KNeighborsRegressor(n_neighbors=5)
+model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+from sklearn.metrics import mean_squared_error, r2_score
+print("R² Score:", r2_score(y_test, y_pred))
+print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
+${plotCode}`,
+
+    "Decision Tree": `${baseCode}
+from sklearn.tree import DecisionTreeRegressor${summary.problemType === "classification" ? " as DecisionTree" : ""}
+
+# Initialize and train the model
+model = DecisionTreeRegressor(max_depth=10, random_state=42)
+model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+from sklearn.metrics import mean_squared_error, r2_score
+print("R² Score:", r2_score(y_test, y_pred))
+print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
+${plotCode}`,
+
     "Random Forest": `${baseCode}
 from sklearn.ensemble import RandomForest${summary.problemType === "regression" ? "Regressor" : "Classifier"}
 
@@ -68,8 +213,14 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 
 # Evaluate the model
-from sklearn.metrics import ${summary.problemType === "regression" ? "mean_squared_error" : "accuracy_score"}
-print("Model score:", model.score(X_test, y_test))`,
+from sklearn.metrics import ${summary.problemType === "regression" ? "mean_squared_error, r2_score" : "accuracy_score"}
+${
+  summary.problemType === "regression"
+    ? `print("R² Score:", r2_score(y_test, y_pred))
+print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
+${plotCode}`
+    : `print("Accuracy:", accuracy_score(y_test, y_pred))`
+}`,
 
     "Gradient Boosting": `${baseCode}
 from sklearn.ensemble import GradientBoosting${summary.problemType === "regression" ? "Regressor" : "Classifier"}
@@ -82,33 +233,61 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 
 # Evaluate the model
-from sklearn.metrics import ${summary.problemType === "regression" ? "mean_squared_error" : "accuracy_score"}
-print("Model score:", model.score(X_test, y_test))`,
+from sklearn.metrics import ${summary.problemType === "regression" ? "mean_squared_error, r2_score" : "accuracy_score"}
+${
+  summary.problemType === "regression"
+    ? `print("R² Score:", r2_score(y_test, y_pred))
+print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
+${plotCode}`
+    : `print("Accuracy:", accuracy_score(y_test, y_pred))`
+}`,
 
-    "Neural Network": `${baseCode}
-from sklearn.neural_network import MLP${summary.problemType === "regression" ? "Regressor" : "Classifier"}
+    "Naive Bayes": `${baseCode}
+from sklearn.naive_bayes import GaussianNB
+
+# Initialize and train the model
+model = GaussianNB()
+model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+from sklearn.metrics import accuracy_score, classification_report
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("\\nClassification Report:")
+print(classification_report(y_test, y_pred))`,
+
+    "K-Means": `${baseCode}
+from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 
 # Scale the data
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
 
 # Initialize and train the model
-model = MLP${summary.problemType === "regression" ? "Regressor" : "Classifier"}(
-    hidden_layer_sizes=(100, 50),
-    max_iter=1000,
-    random_state=42
-)
-model.fit(X_train_scaled, y_train)
+model = KMeans(n_clusters=3, random_state=42)
+model.fit(X_train_scaled)
 
-# Make predictions
-y_pred = model.predict(X_test_scaled)
-
-# Evaluate the model
-from sklearn.metrics import ${summary.problemType === "regression" ? "mean_squared_error" : "accuracy_score"}
-print("Model score:", model.score(X_test_scaled, y_test))`,
+# Get cluster labels
+labels = model.labels_
+print("Cluster labels:", np.unique(labels))
+print("Number of samples per cluster:", np.bincount(labels))`,
   };
+
+  // If specific models are requested, filter to those
+  if (modelNames && modelNames.length > 0) {
+    const filtered: Record<string, string> = {};
+    modelNames.forEach((name) => {
+      if (codes[name]) {
+        filtered[name] = codes[name];
+      }
+    });
+    return filtered;
+  }
+
+  return codes;
 };
 
 interface TrainingLabProps {}
@@ -126,9 +305,9 @@ export function TrainingLab({}: TrainingLabProps) {
   const [activeTab, setActiveTab] = useState("overview");
   const [processedDataset, setProcessedDataset] =
     useState<ProcessedData | null>(null);
-  const [modelRecommendation, setModelRecommendation] = useState<string | null>(
-    null,
-  );
+  const [topModels, setTopModels] = useState<
+    Array<{ model: string; reasoning: string }>
+  >([]);
   const [codeSnippets, setCodeSnippets] = useState<Record<string, string>>({});
   const [columnStats, setColumnStats] = useState<Record<string, any>>({});
 
@@ -278,18 +457,27 @@ export function TrainingLab({}: TrainingLabProps) {
               targetVariable: targetVariable,
             };
             const geminiResult = await recommendModel(input);
-            setModelRecommendation(geminiResult.recommendation);
-          } catch (err) {
-            setModelRecommendation("Could not get model recommendation.");
-          }
+            setTopModels(geminiResult.topModels);
 
-          // Colab code (still show for all models)
-          const snippets = generateColabCode(
-            preprocessingSummary,
-            processed.featureNames,
-            targetVariable,
-          );
-          setCodeSnippets(snippets);
+            // Generate code only for recommended models
+            const recommendedModelNames = geminiResult.topModels.map(
+              (m) => m.model,
+            );
+            const snippets = generateColabCode(
+              preprocessingSummary,
+              processed.featureNames,
+              targetVariable,
+              recommendedModelNames,
+            );
+            setCodeSnippets(snippets);
+          } catch (err) {
+            console.error("Error getting recommendation:", err);
+            toast({
+              title: "Recommendation Error",
+              description: "Could not get model recommendations from Gemini.",
+              variant: "destructive",
+            });
+          }
         } catch (error) {
           console.error("Error in model preparation:", error);
           toast({
@@ -413,20 +601,6 @@ export function TrainingLab({}: TrainingLabProps) {
               <TabsTrigger value="variables">
                 <Table className="mr-2 h-4 w-4" />
                 Variables
-              </TabsTrigger>
-              <TabsTrigger
-                value="correlations"
-                disabled={!processedData || processedData.length === 0}
-              >
-                <LineChart className="mr-2 h-4 w-4" />
-                Correlations
-              </TabsTrigger>
-              <TabsTrigger
-                value="distributions"
-                disabled={!processedData || processedData.length === 0}
-              >
-                <BarChart2 className="mr-2 h-4 w-4" />
-                Distributions
               </TabsTrigger>
             </TabsList>
 
@@ -649,31 +823,6 @@ export function TrainingLab({}: TrainingLabProps) {
                 </div>
               )}
             </TabsContent>
-
-            <TabsContent value="correlations">
-              <div className="text-center py-8 text-muted-foreground">
-                <LineChart className="h-12 w-12 mx-auto mb-2" />
-                <p>
-                  Correlation analysis will be available in the next update.
-                </p>
-                <p className="text-sm">
-                  This will show relationships between numeric variables.
-                </p>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="distributions">
-              <div className="text-center py-8 text-muted-foreground">
-                <BarChart2 className="h-12 w-12 mx-auto mb-2" />
-                <p>
-                  Distribution visualizations will be available in the next
-                  update.
-                </p>
-                <p className="text-sm">
-                  This will show histograms and box plots for numeric variables.
-                </p>
-              </div>
-            </TabsContent>
           </Tabs>
         </CardContent>
       </Card>
@@ -751,22 +900,38 @@ export function TrainingLab({}: TrainingLabProps) {
         </CardContent>
       </Card>
 
-      {/* Gemini Model Recommendation */}
-      {modelRecommendation && (
+      {/* Gemini Model Recommendation - Top 3 Models */}
+      {topModels.length > 0 && (
         <Card>
           <CardHeader>
             <CardTitle className="font-headline">
-              Gemini Model Recommendation
+              Top 3 Recommended Models (by Our AI)
             </CardTitle>
             <CardDescription>
-              Best model and reasoning from Gemini (Google AI).
+              Best models for your dataset based on our AI analysis.
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div
-              className="prose max-w-none"
-              dangerouslySetInnerHTML={{ __html: modelRecommendation }}
-            />
+            <div className="space-y-4">
+              {topModels.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="p-4 border rounded-lg bg-gradient-to-r from-blue-50 to-transparent"
+                >
+                  <div className="flex items-start gap-3">
+                    <Badge variant="secondary" className="mt-1">
+                      #{idx + 1}
+                    </Badge>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-lg">{item.model}</h4>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {item.reasoning}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </CardContent>
         </Card>
       )}

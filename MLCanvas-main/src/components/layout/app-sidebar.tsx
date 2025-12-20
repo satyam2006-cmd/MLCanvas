@@ -14,7 +14,6 @@ import {
   FileSearch2,
   BrainCircuit,
   FlaskConical,
-  Wand2,
   Github,
   Settings,
 } from "lucide-react";
@@ -74,15 +73,14 @@ export function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton href="#" tooltip="GitHub">
-              <Github />
+            <SidebarMenuButton 
+              href="https://github.com/satyam2006-cmd/MLCanvas" 
+              target="_blank"
+              rel="noopener noreferrer"
+              tooltip="View on GitHub"
+            >
+              <Github className="h-4 w-4" />
               <span>GitHub</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton href="#" tooltip="Settings">
-              <Settings />
-              <span>Settings</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

@@ -197,7 +197,6 @@ export function DataPreview({
         {showControls && dataPreview.length > 0 && (
           <div className="mt-4 text-sm text-muted-foreground">
             <p>• Select columns to include in the analysis</p>
-            <p>• Click on a column header to set it as the target variable</p>
             <p>• Click the X to remove a column</p>
           </div>
         )}
