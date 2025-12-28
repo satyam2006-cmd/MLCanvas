@@ -14,7 +14,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mlcanvas.app"),
+  metadataBase: new URL("https://ml-canvas-silk.vercel.app"),
   title: "ML Canvas – Learn Machine Learning Visually",
   description:
     "ML Canvas helps you understand machine learning preprocessing, models, and data pipelines interactively.",
@@ -25,10 +25,13 @@ export const metadata: Metadata = {
     "preprocessing",
     "ml visualization",
   ],
+  verification: {
+    google: "XAsFzvZKkTmjfoYPDoFbwaTrWPiYbfksKmfuo-9LV-8",
+  },
   openGraph: {
     title: "ML Canvas",
     description: "Learn ML by understanding data, not black-box training.",
-    url: "https://mlcanvas.app",
+    url: "https://ml-canvas-silk.vercel.app",
     siteName: "ML Canvas",
     images: [
       {
