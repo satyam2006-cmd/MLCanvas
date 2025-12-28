@@ -19,7 +19,7 @@ export const metadata = {
   alternates: {
     canonical: "/lab",
   },
-  robots: "noindex, follow",
+  robots: "index, follow",
 };
 
 const learningModules = [

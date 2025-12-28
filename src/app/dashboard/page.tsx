@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/dashboard",
   },
-  robots: "noindex, follow",
+  robots: "index, follow",
 };
 
 export default function DashboardPage() {

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/playground",
   },
-  robots: "noindex, follow",
+  robots: "index, follow",
 };
 
 export default function PlaygroundPage() {
