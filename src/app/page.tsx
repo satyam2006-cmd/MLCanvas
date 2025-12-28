@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  robots: "index, follow",
 };
 
 export default function Home() {
