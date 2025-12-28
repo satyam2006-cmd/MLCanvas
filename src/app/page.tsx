@@ -1,9 +1,9 @@
-import { redirect } from 'next/navigation';
+import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ML Canvas — Learn Machine Learning by Doing",
-  description: "Understand datasets, preprocessing, and ML models transparently.",
+  title: "ML Canvas – Learn Machine Learning Visually",
+  description: "Learn ML by understanding data, not black-box training.",
   alternates: {
     canonical: "/",
   },
@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  redirect('/dashboard');
+  redirect("/dashboard");
 }
