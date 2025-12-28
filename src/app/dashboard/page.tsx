@@ -3,6 +3,19 @@ import { DataExplorer } from "@/components/dashboard/data-explorer";
 import { CsvDataProvider } from "@/contexts/csv-data-context";
 import { LearningResources } from "@/components/dashboard/learning-resources";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard | ML Canvas",
+  description: "ML Canvas dashboard to preprocess datasets and explore ML workflows.",
+  alternates: {
+    canonical: "/dashboard",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function DashboardPage() {
   return (

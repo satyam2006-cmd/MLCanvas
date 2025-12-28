@@ -12,6 +12,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
+export const metadata = {
+  title: "Learning Lab | ML Canvas",
+  description: "Learn fundamental machine learning concepts with interactive tutorials and explanations.",
+  alternates: {
+    canonical: "/lab",
+  },
+};
+
 const learningModules = [
   {
     title: "Introduction to Machine Learning",
