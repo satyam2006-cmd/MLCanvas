@@ -1,0 +1,197 @@
+/* Jupyter Notebook Style CSS */
+
+.notebook-cell {
+  border: 1px solid hsl(var(--border));
+  border-radius: 8px;
+  margin-bottom: 16px;
+  background: hsl(var(--background));
+  transition: all 0.2s ease;
+}
+
+.notebook-cell:hover {
+  border-color: hsl(var(--muted-foreground) / 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.cell-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: hsl(var(--muted) / 0.5);
+  border-bottom: 1px solid hsl(var(--border));
+  border-radius: 8px 8px 0 0;
+}
+
+.cell-content {
+  padding: 16px;
+}
+
+.cell-output {
+  padding: 12px 16px;
+  border-top: 1px solid hsl(var(--border));
+  background: hsl(var(--muted) / 0.3);
+}
+
+/* Markdown Cell Styling */
+.markdown-cell {
+  border-left: 4px solid hsl(var(--primary) / 0.3);
+}
+
+.markdown-cell .cell-content {
+  line-height: 1.6;
+}
+
+.markdown-cell h1 {
+  color: hsl(var(--foreground));
+  font-size: 2em;
+  font-weight: 600;
+  margin: 0.67em 0;
+  border-bottom: 2px solid hsl(var(--border));
+  padding-bottom: 0.3em;
+}
+
+.markdown-cell h2 {
+  color: hsl(var(--foreground));
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0.75em 0;
+  border-bottom: 1px solid hsl(var(--border));
+  padding-bottom: 0.3em;
+}
+
+.markdown-cell h3 {
+  color: hsl(var(--foreground));
+  font-size: 1.25em;
+  font-weight: 600;
+  margin: 1em 0;
+}
+
+.markdown-cell p {
+  color: hsl(var(--foreground));
+  margin: 1em 0;
+}
+
+.markdown-cell li {
+  color: hsl(var(--foreground));
+  margin: 0.5em 0;
+  list-style-position: inside;
+}
+
+.markdown-cell hr {
+  border: none;
+  height: 2px;
+  background: hsl(var(--border));
+  margin: 2em 0;
+}
+
+/* Code Cell Styling */
+.code-cell {
+  border-left: 4px solid hsl(var(--chart-2) / 0.5);
+}
+
+.code-cell .cell-content pre {
+  background: hsl(var(--accent) / 0.1) !important;
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+}
+
+.code-cell .cell-output pre {
+  background: #1e1e1e !important;
+  color: #00ff00;
+  border: 1px solid hsl(var(--border));
+}
+
+/* Exercise Cell Styling */
+.exercise-cell {
+  border-left: 4px solid hsl(var(--chart-1) / 0.5);
+  background: hsl(var(--accent) / 0.05);
+}
+
+.exercise-cell .cell-content {
+  background: linear-gradient(135deg, hsl(var(--accent) / 0.1), transparent);
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .notebook-cell {
+    background: hsl(var(--background));
+    border-color: hsl(var(--border));
+  }
+  
+  .code-cell .cell-content pre {
+    background: #0d1117 !important;
+    color: #e6edf3;
+    border-color: #30363d;
+  }
+  
+  .code-cell .cell-output pre {
+    background: #0d1117 !important;
+    color: #58a6ff;
+    border-color: #30363d;
+  }
+  
+  .markdown-cell h1,
+  .markdown-cell h2,
+  .markdown-cell h3 {
+    color: #f0f6fc;
+  }
+  
+  .markdown-cell p,
+  .markdown-cell li {
+    color: #c9d1d9;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cell-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .cell-content {
+    padding: 12px;
+  }
+  
+  .cell-output {
+    padding: 8px 12px;
+  }
+}
+
+/* Code syntax highlighting */
+.code-cell .cell-content code {
+  font-family: 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Animation for copy button */
+.cell-header button {
+  transition: all 0.2s ease;
+}
+
+.cell-header button:hover {
+  background: hsl(var(--accent));
+  transform: scale(1.05);
+}
+
+/* Focus states */
+.notebook-cell:focus-within {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+/* Print styles */
+@media print {
+  .notebook-cell {
+    break-inside: avoid;
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+  
+  .cell-header {
+    background: #f5f5f5 !important;
+  }
+}

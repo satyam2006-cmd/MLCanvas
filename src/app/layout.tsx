@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import { FirebaseClientProvider } from "@/firebase/client-provider";
 import { ThemeProvider } from "@/components/theme-provider";
+import { GridScan } from "@/components/GridScan";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({
@@ -59,13 +60,29 @@ export default function RootLayout({
         spaceGrotesk.variable
       )}
     >
-      <body suppressHydrationWarning>
+      <body suppressHydrationWarning className="relative">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          <div className="fixed inset-0 -z-10">
+            <GridScan
+              sensitivity={0.55}
+              lineThickness={1}
+              linesColor="#392e4e"
+              gridScale={0.1}
+              scanColor="#FF9FFC"
+              scanOpacity={0.4}
+              enablePost
+              bloomIntensity={0.6}
+              chromaticAberration={0.002}
+              noiseIntensity={0.01}
+              className=""
+              style={{}}
+            />
+          </div>
           <FirebaseClientProvider>{children}</FirebaseClientProvider>
           <Toaster />
         </ThemeProvider>
