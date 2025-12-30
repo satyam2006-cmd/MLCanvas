@@ -6,10 +6,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { FileTree, NotebookViewer } from "@/components/notebook-viewer";
 import { NotebookFile } from "@/lib/notebook-explorer";
-import { Folder, FileText, ChevronRight, ExternalLink } from "lucide-react";
+import { Folder, FileText, ChevronRight, ExternalLink, ChevronDown } from "lucide-react";
 
 export default function LabPage() {
   const [selectedFile, setSelectedFile] = useState<NotebookFile | null>(null);
+  const [isMainSectionExpanded, setIsMainSectionExpanded] = useState(true);
 
   const handleFileSelect = (file: NotebookFile) => {
     if (file.type === 'file') {
@@ -19,6 +20,10 @@ export default function LabPage() {
 
   const handleBack = () => {
     setSelectedFile(null);
+  };
+
+  const toggleMainSection = () => {
+    setIsMainSectionExpanded(!isMainSectionExpanded);
   };
 
   if (selectedFile) {
@@ -43,15 +48,29 @@ export default function LabPage() {
 
       <Card className="bg-background/80 backdrop-blur-md border-border/50">
         <CardHeader>
-          <CardTitle className="text-2xl flex items-center">
-            <FileText className="h-6 w-6 mr-2 text-blue-500" />
-            Machine Learning Notebooks
-          </CardTitle>
-          <p className="text-muted-foreground">
-            Helpful Jupyter notebooks that I compiled while learning Machine Learning and Deep Learning from various sources on the Internet.
-          </p>
+          <button
+            onClick={toggleMainSection}
+            className="w-full text-left flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors"
+          >
+            <CardTitle className="text-2xl flex items-center">
+              <FileText className="h-6 w-6 mr-2 text-blue-500" />
+              Machine Learning Notebooks
+            </CardTitle>
+            {isMainSectionExpanded ? (
+              <ChevronDown className="h-6 w-6 text-muted-foreground" />
+            ) : (
+              <ChevronRight className="h-6 w-6 text-muted-foreground" />
+            )}
+          </button>
+          {isMainSectionExpanded && (
+            <p className="text-muted-foreground">
+              Helpful Jupyter notebooks that I compiled while learning Machine Learning and Deep Learning from various sources on Internet.
+            </p>
+          )}
         </CardHeader>
-        <CardContent className="space-y-8">
+        {isMainSectionExpanded && (
+          <CardContent className="space-y-8">
+          <div>
           
           {/* NumPy Basics */}
           <div>
@@ -1368,8 +1387,10 @@ export default function LabPage() {
             </ul>
           </div>
 
+        </div>
         </CardContent>
+        )}
       </Card>
     </div>
-  );
+  )
 }
