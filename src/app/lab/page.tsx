@@ -41,7 +41,7 @@ export default function LabPage() {
         </p>
       </div>
 
-      <Card>
+      <Card className="bg-background/80 backdrop-blur-md border-border/50">
         <CardHeader>
           <CardTitle className="text-2xl flex items-center">
             <FileText className="h-6 w-6 mr-2 text-blue-500" />
