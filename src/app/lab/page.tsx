@@ -67,7 +67,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/00.%20NumPy%20Basics/1.%20NumPy%20Basics.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/00.%20NumPy%20Basics/1.%20NumPy%20Basics.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -83,7 +83,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/00.%20NumPy%20Basics/100_Numpy_exercises_no_solution.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/00.%20NumPy%20Basics/100_Numpy_exercises_no_solution.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -112,7 +112,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/01.%20Data%20Preprocessing/1.%20Feature%20Selection.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/01.%20Data%20Preprocessing/1.%20Feature%20Selection.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -131,7 +131,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/01.%20Data%20Preprocessing/2.%20Scaling%2C%20Normalizing.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/01.%20Data%20Preprocessing/2.%20Scaling%2C%20Normalizing.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -150,7 +150,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/01.%20Data%20Preprocessing/3.%20Feature%20Extraction.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/01.%20Data%20Preprocessing/3.%20Feature%20Extraction.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -179,7 +179,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/02.%20Regression/1A.%20Linear%20Regression%20and%20Gradient%20Descent(Theory).ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/02.%20Regression/1A.%20Linear%20Regression%20and%20Gradient%20Descent(Theory).ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -196,7 +196,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/02.%20Regression/1B.%20Linear%20Regression%20and%20Gradient%20Descent%20.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/02.%20Regression/1B.%20Linear%20Regression%20and%20Gradient%20Descent%20.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -213,7 +213,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/02.%20Regression/1C.%20Assumptions%20in%20Linear%20Regression%20and%20Dummy%20variables.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/02.%20Regression/1C.%20Assumptions%20in%20Linear%20Regression%20and%20Dummy%20variables.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -230,7 +230,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/02.%20Regression/1D.%20Simple%20and%20Multiple%20Regression%20using%20Sci-kit%20learn.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/02.%20Regression/1D.%20Simple%20and%20Multiple%20Regression%20using%20Sci-kit%20learn.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -247,7 +247,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/02.%20Regression/2.%20Backward%20Elimination.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/02.%20Regression/2.%20Backward%20Elimination.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -264,7 +264,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/02.%20Regression/3.%20Polynomial%20Regression.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/02.%20Regression/3.%20Polynomial%20Regression.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -281,7 +281,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/02.%20Regression/4.%20Support%20Vector%20Regression.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/02.%20Regression/4.%20Support%20Vector%20Regression.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -298,7 +298,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/02.%20Regression/5.%20Decision%20Tree%20Regression.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/02.%20Regression/5.%20Decision%20Tree%20Regression.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -315,7 +315,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/02.%20Regression/6.%20Random%20Forest.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/02.%20Regression/6.%20Random%20Forest.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -332,7 +332,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/02.%20Regression/7.%20R%20Squared.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/02.%20Regression/7.%20R%20Squared.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -349,7 +349,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/02.%20Regression/8.%20Robust%20Regression%20(TheilSen%20Regressor).ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/02.%20Regression/8.%20Robust%20Regression%20(TheilSen%20Regressor).ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -366,7 +366,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/02.%20Regression/9.%20Pipelines%20in%20Sklearn.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/02.%20Regression/9.%20Pipelines%20in%20Sklearn.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -396,7 +396,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/1A.%20Logistic%20Regression%20and%20Gradient%20Descent.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/1A.%20Logistic%20Regression%20and%20Gradient%20Descent.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -413,7 +413,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/1B.%20Deriving%20Logistic%20Regression%20.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/1B.%20Deriving%20Logistic%20Regression%20.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -430,7 +430,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/1C.%20Logistic%20Regression%20using%20Gradient%20Descent.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/1C.%20Logistic%20Regression%20using%20Gradient%20Descent.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -447,7 +447,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/1D.%20Logistic%20Regression%20using%20Sci-kit%20learn.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/1D.%20Logistic%20Regression%20using%20Sci-kit%20learn.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -467,7 +467,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/2A.%20Regularization.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/2A.%20Regularization.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -484,7 +484,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/2B.%20Regularization%20on%20Logistic%20Regression.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/2B.%20Regularization%20on%20Logistic%20Regression.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -504,7 +504,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/3.%20KNN.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/3.%20KNN.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -521,7 +521,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/4.%20SVM.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/4.%20SVM.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -538,7 +538,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/5a.%20Naive%20Bayes.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/5a.%20Naive%20Bayes.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -555,7 +555,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/5B.%20Naive%20Bayes%20using%20sklearn.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/5B.%20Naive%20Bayes%20using%20sklearn.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -572,7 +572,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/6A.%20Decision%20Trees%20%26%20Information%20Theory.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/6A.%20Decision%20Trees%20%26%20Information%20Theory.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -589,7 +589,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/6B.%20Decision%20Trees.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/6B.%20Decision%20Trees.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -606,7 +606,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/7.%20Random%20Forest%20.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/7.%20Random%20Forest%20.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -623,7 +623,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/Logistic%20Regression%20example%202.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/Logistic%20Regression%20example%202.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -640,7 +640,7 @@ export default function LabPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/03.%20Classification/Ridge%2C%20and%20Ridge%20CV%20for%20optimized%20alpha%20values.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/03.%20Classification/Ridge%2C%20and%20Ridge%20CV%20for%20optimized%20alpha%20values.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -667,7 +667,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/04.%20Clustering/1.%20KMeans.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/04.%20Clustering/1.%20KMeans.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -683,7 +683,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/04.%20Clustering/2.%20MiniBatch%20KMeans.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/04.%20Clustering/2.%20MiniBatch%20KMeans.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -699,7 +699,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/04.%20Clustering/3.%20Hierarchical%20Clustering.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/04.%20Clustering/3.%20Hierarchical%20Clustering.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -717,7 +717,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/04.%20Clustering/4.%20Image%20Quantization%20using%20Clustering.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/04.%20Clustering/4.%20Image%20Quantization%20using%20Clustering.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -735,7 +735,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/04.%20Clustering/05.%20Outlier%20Detection%20using%20KMeans.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/04.%20Clustering/05.%20Outlier%20Detection%20using%20KMeans.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -761,7 +761,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/05.%20Model%20Evaluation/1.%20Cross%20Validation%20and%20its%20types.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/05.%20Model%20Evaluation/1.%20Cross%20Validation%20and%20its%20types.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -777,7 +777,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/05.%20Model%20Evaluation/Confusion%20Matrix%2C%20Precision%2C%20Recall.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/05.%20Model%20Evaluation/Confusion%20Matrix%2C%20Precision%2C%20Recall.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -793,7 +793,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/05.%20Model%20Evaluation/Grid%20Search%20and%20Randomized%20Search.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/05.%20Model%20Evaluation/Grid%20Search%20and%20Randomized%20Search.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -809,7 +809,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/05.%20Model%20Evaluation/R%20Squared.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/05.%20Model%20Evaluation/R%20Squared.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -825,7 +825,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/05.%20Model%20Evaluation/ROC%20Curve%20%26%20AUC.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/05.%20Model%20Evaluation/ROC%20Curve%20%26%20AUC.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -841,7 +841,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/05.%20Model%20Evaluation/Silhoutte%20Distance%20for%20Clustering.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/05.%20Model%20Evaluation/Silhoutte%20Distance%20for%20Clustering.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -857,7 +857,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/05.%20Model%20Evaluation/3.%20XGBoost.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/05.%20Model%20Evaluation/3.%20XGBoost.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -883,7 +883,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/06.%20Associate%20Rule%20Mining/1.%20Apriori%20Algorithm.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/06.%20Associate%20Rule%20Mining/1.%20Apriori%20Algorithm.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -899,7 +899,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/06.%20Associate%20Rule%20Mining/2.%20Eclat%20Model.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/06.%20Associate%20Rule%20Mining/2.%20Eclat%20Model.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -925,7 +925,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/07.%20Reinforcement%20Learning/1.%20Upper%20Confidence%20Bound.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/07.%20Reinforcement%20Learning/1.%20Upper%20Confidence%20Bound.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -941,7 +941,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/07.%20Reinforcement%20Learning/2.%20Thompson%20Sampling.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/07.%20Reinforcement%20Learning/2.%20Thompson%20Sampling.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -967,7 +967,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/08.%20Natural%20Language%20Processing/1.%20Sentiment%20Analysis.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/08.%20Natural%20Language%20Processing/1.%20Sentiment%20Analysis.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -993,7 +993,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/09.%20Neural%20Networks/1.%20Activation%20Functions.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/09.%20Neural%20Networks/1.%20Activation%20Functions.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1009,7 +1009,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/09.%20Neural%20Networks/2.%20ANN.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/09.%20Neural%20Networks/2.%20ANN.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1025,7 +1025,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/09.%20Neural%20Networks/2A.%20Backpropagation%20.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/09.%20Neural%20Networks/2A.%20Backpropagation%20.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1041,7 +1041,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/09.%20Neural%20Networks/2B.%20Neural%20Networks%20using%20Backpropagation.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/09.%20Neural%20Networks/2B.%20Neural%20Networks%20using%20Backpropagation.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1057,7 +1057,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/09.%20Neural%20Networks/3a.%20Convolutional%20Neural%20Networks%20Theory.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/09.%20Neural%20Networks/3a.%20Convolutional%20Neural%20Networks%20Theory.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1073,7 +1073,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/09.%20Neural%20Networks/3B.%20Convolutional%20Neural%20Networks%20in%20TensorFlow.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/09.%20Neural%20Networks/3B.%20Convolutional%20Neural%20Networks%20in%20TensorFlow.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1089,7 +1089,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/09.%20Neural%20Networks/5.%20LSTM%20.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/09.%20Neural%20Networks/5.%20LSTM%20.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1105,7 +1105,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/09.%20Neural%20Networks/4.%20Recurrent%20Neural%20Networks%20and%20LSTM%20(Theory).ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/09.%20Neural%20Networks/4.%20Recurrent%20Neural%20Networks%20and%20LSTM%20(Theory).ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1131,7 +1131,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/10.%20Dimensionality%20Reduction/1.%20Principal%20Component%20Analysis.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/10.%20Dimensionality%20Reduction/1.%20Principal%20Component%20Analysis.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1147,7 +1147,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/10.%20Dimensionality%20Reduction/2.%20Linear%20Discriminant%20Analysis.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/10.%20Dimensionality%20Reduction/2.%20Linear%20Discriminant%20Analysis.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1163,7 +1163,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/10.%20Dimensionality%20Reduction/3.%20Factor%20Analysis.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/10.%20Dimensionality%20Reduction/3.%20Factor%20Analysis.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1179,7 +1179,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/10.%20Dimensionality%20Reduction/4.%20Kernel%20PCA.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/10.%20Dimensionality%20Reduction/4.%20Kernel%20PCA.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1195,7 +1195,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/10.%20Dimensionality%20Reduction/5.%20Truncated%20SVD.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/10.%20Dimensionality%20Reduction/5.%20Truncated%20SVD.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1211,7 +1211,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/10.%20Dimensionality%20Reduction/6.%20Self%20Organizing%20Maps.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/10.%20Dimensionality%20Reduction/6.%20Self%20Organizing%20Maps.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1227,7 +1227,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/10.%20Dimensionality%20Reduction/7.%20Dictionary%20Learning.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/10.%20Dimensionality%20Reduction/7.%20Dictionary%20Learning.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1243,7 +1243,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/10.%20Dimensionality%20Reduction/8.%20t-SNE.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/10.%20Dimensionality%20Reduction/8.%20t-SNE.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1269,7 +1269,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/11.%20Model%20Selection%20and%20Boosting/1.%20K-Fold%20Cross%20Validation.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/11.%20Model%20Selection%20and%20Boosting/1.%20K-Fold%20Cross%20Validation.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1285,7 +1285,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/11.%20Model%20Selection%20and%20Boosting/2.%20Grid%20Search.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/11.%20Model%20Selection%20and%20Boosting/2.%20Grid%20Search.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1301,7 +1301,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/11.%20Model%20Selection%20and%20Boosting/3.%20XGBoost.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/11.%20Model%20Selection%20and%20Boosting/3.%20XGBoost.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1327,7 +1327,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/12.%20Unsupervised%20Neural%20Networks/1.%20Boltzmann%20Machine.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/12.%20Unsupervised%20Neural%20Networks/1.%20Boltzmann%20Machine.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -1343,7 +1343,7 @@ export default function LabPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <a 
-                      href="http://nbviewer.jupyter.org/github/maykulkarni/Machine-Learning-Notebooks/blob/master/12.%20Unsupervised%20Neural%20Networks/2.%20Autoencoders.ipynb"
+                      href="http://nbviewer.jupyter.org/github/satyam2006-cmd/MLCanvas/blob/main/Machine-Learning-Notebooks-master/12.%20Unsupervised%20Neural%20Networks/2.%20Autoencoders.ipynb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
