@@ -1,7 +1,7 @@
 # 🧠 ML Canvas
 **Learn Machine Learning by Doing — Not Just Training**
 
-try now - [ML Canvas](https://ml-canvas-268c7k0zy-satyam-bhagats-projects.vercel.app/dashboard)
+try now - [ML Canvas](https://ml-canvas-silk.vercel.app/dashboard)
 
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
