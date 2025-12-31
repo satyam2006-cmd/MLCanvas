@@ -40,10 +40,10 @@ function detectColumnType(values: unknown[]): ColumnType {
   );
   if (nonNullValues.length === 0) return "unknown";
 
-    const allNumeric = nonNullValues.every((val) => isNumeric(val));
+  const allNumeric = nonNullValues.every((val) => isNumeric(val));
   if (allNumeric) return "numeric";
 
-    const uniqueRatio = new Set(nonNullValues).size / nonNullValues.length;
+  const uniqueRatio = new Set(nonNullValues).size / nonNullValues.length;
   if (uniqueRatio > 0.9) return "id";
 
   return "categorical";
@@ -89,7 +89,7 @@ function getColumnStats(data: CsvData, column: string): ColumnStats {
       isIdLike: uniqueValues.size / data.length > 0.9,
     };
   } else {
-        const counts = new Map<string | number, number>();
+    const counts = new Map<string | number, number>();
     let maxCount = 0;
     let mode: string | number | undefined = undefined;
 
@@ -123,7 +123,7 @@ export function preprocessDataset(
     throw new Error("Input data is empty.");
   }
 
-    let data = JSON.parse(JSON.stringify(rawData)) as CsvData;
+  let data = JSON.parse(JSON.stringify(rawData)) as CsvData;
   const originalColumns = Object.keys(rawData[0] || {});
 
   const summary: PreprocessingSummary = {
@@ -137,36 +137,19 @@ export function preprocessDataset(
     problemType: null,
   };
 
-  console.log("[preprocessDataset] Starting column filtering", {
-    selectedColumns,
-    targetColumn,
-    originalColumns,
-  });
-
-  console.log(
-    "[preprocessDataset] Raw selectedColumns:",
-    JSON.stringify(selectedColumns, null, 2),
-  );
-
-    const columnsToKeep = [
-        ...Object.entries(selectedColumns)
+  const columnsToKeep = [
+    ...Object.entries(selectedColumns)
       .filter(([col, keep]) => keep || col === targetColumn)
       .map(([col]) => col),
   ];
 
-    const uniqueColumns = Array.from(new Set(columnsToKeep));
+  const uniqueColumns = Array.from(new Set(columnsToKeep));
 
-  console.log(
-    "[preprocessDataset] Columns to keep after filtering:",
-    uniqueColumns,
-  );
-
-    summary.droppedColumns = originalColumns.filter(
+  summary.droppedColumns = originalColumns.filter(
     (col) => !uniqueColumns.includes(col),
   );
-  console.log("[preprocessDataset] Dropped columns:", summary.droppedColumns);
 
-    data = data.map((row: Record<string, unknown>, index) => {
+  data = data.map((row: Record<string, unknown>, index) => {
     const newRow: Record<string, unknown> = {};
     uniqueColumns.forEach((col) => {
       if (!(col in row)) {
@@ -183,16 +166,16 @@ export function preprocessDataset(
   columnsToKeep.forEach((column) => {
     const stats = getColumnStats(data, column);
 
-        const missingBefore = stats.missing;
+    const missingBefore = stats.missing;
 
-        data.forEach((row: Record<string, unknown>) => {
+    data.forEach((row: Record<string, unknown>) => {
       if (
         row[column] === null ||
         row[column] === undefined ||
         row[column] === ""
       ) {
         if (column === targetColumn) {
-                    row[column] = null;
+          row[column] = null;
         } else if (stats.type === "numeric") {
           row[column] = stats.median ?? 0;
         } else {
@@ -201,7 +184,7 @@ export function preprocessDataset(
       }
     });
 
-        const missingAfter = data.filter(
+    const missingAfter = data.filter(
       (row: Record<string, unknown>) =>
         row[column] === null || row[column] === undefined || row[column] === "",
     ).length;
@@ -211,14 +194,14 @@ export function preprocessDataset(
       after: missingAfter,
     };
 
-        if (stats.type === "categorical" && column !== targetColumn) {
+    if (stats.type === "categorical" && column !== targetColumn) {
       summary.encodedColumns[column] =
         stats.unique > 10 ? "LabelEncoder" : "OneHotEncoder";
     }
   });
 
   if (targetColumn) {
-        const initialCount = data.length;
+    const initialCount = data.length;
     data = data.filter(
       (row: Record<string, unknown>) =>
         row[targetColumn] !== null &&
@@ -226,14 +209,14 @@ export function preprocessDataset(
         row[targetColumn] !== "",
     ) as CsvData;
 
-        const targetStats = getColumnStats(data, targetColumn);
+    const targetStats = getColumnStats(data, targetColumn);
     if (targetStats.type === "numeric") {
       summary.problemType = "regression";
     } else {
-            summary.problemType = targetStats.unique <= 2 ? "binary" : "multiclass";
+      summary.problemType = targetStats.unique <= 2 ? "binary" : "multiclass";
     }
 
-        summary.processedRows = data.length;
+    summary.processedRows = data.length;
     summary.droppedColumns = [
       ...summary.droppedColumns,
       ...Array(initialCount - data.length).fill(
@@ -253,7 +236,7 @@ export function preprocessDataset(
     let newRow: Record<string, any> = {};
     for (const col of uniqueColumns) {
       if (categoricalColumns.includes(col)) {
-                const uniqueVals = Array.from(new Set(data.map((r) => r[col])))
+        const uniqueVals = Array.from(new Set(data.map((r) => r[col])))
           .filter((v) => v !== null && v !== undefined && v !== "")
           .sort();
         if (uniqueVals.length <= 1) {
@@ -298,7 +281,7 @@ export function processDataForModel(
   const numericFeatures: string[] = [];
   const categoricalFeatures: string[] = [];
 
-    for (const header of allHeaders) {
+  for (const header of allHeaders) {
     if (header === targetVariable) continue;
 
     const firstValue = data[0][header];
@@ -349,14 +332,14 @@ export function processDataForModel(
         encodedCategoricalData[i].push(0);
       }
     } else if (uniqueValues.length === 2) {
-            finalFeatureNames.push(`${col}_${uniqueValues[0]}`);
+      finalFeatureNames.push(`${col}_${uniqueValues[0]}`);
       for (let i = 0; i < data.length; i++) {
         encodedCategoricalData[i].push(
           data[i][col] === uniqueValues[0] ? 1 : 0,
         );
       }
     } else {
-            for (let j = 1; j < uniqueValues.length; j++) {
+      for (let j = 1; j < uniqueValues.length; j++) {
         finalFeatureNames.push(`${col}_${uniqueValues[j]}`);
         for (let i = 0; i < data.length; i++) {
           encodedCategoricalData[i].push(

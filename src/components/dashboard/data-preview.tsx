@@ -147,11 +147,10 @@ export function DataPreview({
                           />
                         )}
                         <span
-                          className={`cursor-pointer ${
-                            targetColumn === header
+                          className={`cursor-pointer ${targetColumn === header
                               ? "font-bold text-primary"
                               : ""
-                          }`}
+                            }`}
                           onClick={(e) =>
                             showControls && handleSetTarget(header, e)
                           }

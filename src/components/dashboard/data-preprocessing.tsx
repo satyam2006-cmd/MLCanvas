@@ -22,11 +22,11 @@ type DataPreprocessingProps = {
 export function DataPreprocessing({ onProcessed }: DataPreprocessingProps) {
   const { csvData } = useCsvData();
   const [activeTab, setActiveTab] = useState('preview');
-  const { 
-    isPreprocessing, 
-    processedData, 
-    preprocessingSummary, 
-    preprocessData, 
+  const {
+    isPreprocessing,
+    processedData,
+    preprocessingSummary,
+    preprocessData,
     downloadProcessedData,
     selectedColumns,
     setSelectedColumns,
@@ -43,9 +43,9 @@ export function DataPreprocessing({ onProcessed }: DataPreprocessingProps) {
         ...acc,
         [col]: true
       }), {});
-      
+
       setSelectedColumns(initialSelection);
-      
+
       // Auto-select the first column as target if none is selected
       if (columns.length > 0 && !targetColumn) {
         setTargetColumn(columns[0]);
@@ -56,7 +56,7 @@ export function DataPreprocessing({ onProcessed }: DataPreprocessingProps) {
   const handlePreprocess = async () => {
     await preprocessData(csvData);
     setActiveTab('preview'); // Switch to preview to see the processed data
-    
+
     if (onProcessed && processedData) {
       onProcessed(processedData);
     }
@@ -92,8 +92,8 @@ export function DataPreprocessing({ onProcessed }: DataPreprocessingProps) {
               </Badge>
             )}
           </TabsTrigger>
-          <TabsTrigger 
-            value="summary" 
+          <TabsTrigger
+            value="summary"
             disabled={!processedData || !preprocessingSummary}
           >
             Summary
@@ -103,29 +103,29 @@ export function DataPreprocessing({ onProcessed }: DataPreprocessingProps) {
         <TabsContent value="preview" className="space-y-4">
           <Card>
             <CardHeader>
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                   <CardTitle>
                     {processedData ? 'Processed Dataset' : 'Original Dataset'}
                   </CardTitle>
                   <CardDescription className="mt-1">
-                    {processedData 
+                    {processedData
                       ? 'Showing data after applying column selection and preprocessing.'
                       : 'This is your original dataset. Select columns to include and click "Process Dataset" to continue.'}
                   </CardDescription>
                 </div>
                 {processedData ? (
-                  <div className="flex gap-2">
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
+                  <div className="flex flex-wrap gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
                       onClick={() => downloadProcessedData()}
                     >
-                      Download Processed Data
+                      Download Data
                     </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
+                    <Button
+                      variant="outline"
+                      size="sm"
                       onClick={() => {
                         resetPreprocessing();
                         setActiveTab('columns');
@@ -135,9 +135,10 @@ export function DataPreprocessing({ onProcessed }: DataPreprocessingProps) {
                     </Button>
                   </div>
                 ) : (
-                  <Button 
+                  <Button
                     onClick={() => setActiveTab('columns')}
                     disabled={!csvData || csvData.length === 0}
+                    className="w-full sm:w-auto"
                   >
                     Select Columns
                   </Button>
@@ -195,8 +196,8 @@ export function DataPreprocessing({ onProcessed }: DataPreprocessingProps) {
 
         <TabsContent value="summary">
           {preprocessingSummary && (
-            <PreprocessingSummaryCard 
-              summary={preprocessingSummary} 
+            <PreprocessingSummaryCard
+              summary={preprocessingSummary}
               onDownload={downloadProcessedData}
             />
           )}

@@ -30,13 +30,13 @@ export function Header() {
       <div className="flex-1">
         <h1 className="font-headline text-lg font-semibold">Dashboard</h1>
       </div>
-      
+
       <div className="flex items-center gap-3">
         <ThemeToggle />
         <div className="h-6 w-px bg-border" />
         <span className="text-sm text-muted-foreground hidden md:inline">Contributors</span>
         {contributors.map((contributor, index) => (
-          <Link 
+          <Link
             key={index}
             href={contributor.github}
             target="_blank"

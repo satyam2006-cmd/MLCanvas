@@ -35,24 +35,24 @@ export function PreprocessingSummaryCard({ summary, onDownload }: PreprocessingS
         <div>
           <h3 className="font-medium mb-2">Dataset Overview</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCard 
-              title="Original Rows" 
+            <StatCard
+              title="Original Rows"
               value={formatNumber(summary.originalRows)}
               description="Total rows before preprocessing"
             />
-            <StatCard 
-              title="Processed Rows" 
+            <StatCard
+              title="Processed Rows"
               value={formatNumber(summary.processedRows)}
               description={`${((summary.processedRows / summary.originalRows) * 100).toFixed(1)}% of original`}
               change={summary.processedRows < summary.originalRows ? 'decrease' : 'none'}
             />
-            <StatCard 
-              title="Original Columns" 
+            <StatCard
+              title="Original Columns"
               value={formatNumber(summary.originalColumns)}
               description="Total columns before preprocessing"
             />
-            <StatCard 
-              title="Processed Columns" 
+            <StatCard
+              title="Processed Columns"
               value={formatNumber(summary.processedColumns)}
               description={`${((summary.processedColumns / summary.originalColumns) * 100).toFixed(1)}% of original`}
               change={summary.processedColumns < summary.originalColumns ? 'decrease' : 'none'}
@@ -69,10 +69,10 @@ export function PreprocessingSummaryCard({ summary, onDownload }: PreprocessingS
                 {summary.problemType}
               </Badge>
               <span className="text-sm text-muted-foreground">
-                {summary.problemType === 'regression' 
-                  ? 'Continuous target variable detected' 
-                  : summary.problemType === 'binary' 
-                    ? 'Binary classification problem' 
+                {summary.problemType === 'regression'
+                  ? 'Continuous target variable detected'
+                  : summary.problemType === 'binary'
+                    ? 'Binary classification problem'
                     : 'Multi-class classification problem'}
               </span>
             </div>
@@ -154,14 +154,14 @@ export function PreprocessingSummaryCard({ summary, onDownload }: PreprocessingS
   );
 }
 
-function StatCard({ 
-  title, 
-  value, 
+function StatCard({
+  title,
+  value,
   description,
   change = 'none'
-}: { 
-  title: string; 
-  value: string; 
+}: {
+  title: string;
+  value: string;
   description: string;
   change?: 'increase' | 'decrease' | 'none';
 }) {
@@ -173,11 +173,10 @@ function StatCard({
           <p className="text-2xl font-semibold">{value}</p>
         </div>
         {change !== 'none' && (
-          <span className={`text-xs px-2 py-1 rounded-full ${
-            change === 'increase' 
-              ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400' 
-              : 'bg-amber-100 text-amber-800 dark:bg-amber-900/20 dark:text-amber-400'
-          }`}>
+          <span className={`text-xs px-2 py-1 rounded-full ${change === 'increase'
+            ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400'
+            : 'bg-amber-100 text-amber-800 dark:bg-amber-900/20 dark:text-amber-400'
+            }`}>
             {change === 'increase' ? '↑' : '↓'}
           </span>
         )}

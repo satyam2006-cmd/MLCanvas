@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
       'avatars.githubusercontent.com',
       'res.cloudinary.com',
       'github.com',
+      'images.unsplash.com',
     ],
     unoptimized: true,
   },

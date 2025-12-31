@@ -11,7 +11,7 @@ interface PreprocessingContextType {
   preprocessingSummary: any; // You might want to create a more specific type
   selectedColumns: Record<string, boolean>;
   targetColumn: string;
-  
+
   // Actions
   setSelectedColumns: (columns: Record<string, boolean>) => void;
   setTargetColumn: (column: string) => void;
@@ -64,7 +64,7 @@ export function PreprocessingProvider({ children }: { children: ReactNode }) {
     setSelectedColumns(updatedSelectedColumns);
 
     setIsPreprocessing(true);
-    
+
     try {
       console.log('[Preprocessing] Starting dataset preprocessing...');
       const { processedData, summary } = preprocessDataset(
@@ -99,11 +99,11 @@ export function PreprocessingProvider({ children }: { children: ReactNode }) {
     } catch (error) {
       const errorMsg = error instanceof Error ? error.message : 'Unknown error during preprocessing';
       console.error('[Preprocessing] Error:', errorMsg, error);
-      
+
       // Reset state on error
       setProcessedData([]);
       setPreprocessingSummary(null);
-      
+
       toast({
         title: 'Error',
         description: `Failed to process data: ${errorMsg}`,
@@ -130,19 +130,19 @@ export function PreprocessingProvider({ children }: { children: ReactNode }) {
       });
       return;
     }
-    
+
     try {
       // Convert processed data to CSV
       const headers = Object.keys(processedData[0] || {});
       const csvRows = [
         headers.join(','),
-        ...processedData.map(row => 
-          headers.map(fieldName => 
+        ...processedData.map(row =>
+          headers.map(fieldName =>
             JSON.stringify(row[fieldName] ?? '')
           ).join(',')
         )
       ];
-      
+
       const csvContent = csvRows.join('\n');
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
@@ -153,7 +153,7 @@ export function PreprocessingProvider({ children }: { children: ReactNode }) {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      
+
       toast({
         title: 'Success',
         description: 'Dataset downloaded successfully',

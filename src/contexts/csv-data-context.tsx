@@ -29,23 +29,23 @@ interface CsvDataContextProps {
 
 export const CsvDataContext = createContext<CsvDataContextProps>({
   csvData: [],
-  setCsvData: () => {},
+  setCsvData: () => { },
   fileName: '',
-  setFileName: () => {},
+  setFileName: () => { },
   isLoading: true,
   isUploading: false,
-  setIsUploading: () => {},
+  setIsUploading: () => { },
   targetVariable: '',
-  setTargetVariable: () => {},
+  setTargetVariable: () => { },
   headers: [],
   numericFeatures: [],
   categoricalFeatures: [],
   coefficients: null,
-  setCoefficients: () => {},
+  setCoefficients: () => { },
   featureNames: [],
-  setFeatureNames: () => {},
+  setFeatureNames: () => { },
   modelType: null,
-  setModelType: () => {},
+  setModelType: () => { },
 });
 
 // Create a custom hook to use the CSV data context
@@ -65,7 +65,7 @@ export const CsvDataProvider = ({ children }: { children: ReactNode }) => {
   const [coefficients, setCoefficients] = useState<Record<string, number> | null>(null);
   const [featureNames, setFeatureNames] = useState<string[]>([]);
   const [modelType, setModelType] = useState<string | null>(null);
-  
+
   const isLoading = csvData.length === 0 && !fileName && !isUploading;
 
   const { headers, numericFeatures, categoricalFeatures } = useMemo(() => {
@@ -88,7 +88,7 @@ export const CsvDataProvider = ({ children }: { children: ReactNode }) => {
 
     return { headers, numericFeatures: numeric, categoricalFeatures: categorical };
   }, [csvData]);
-  
+
   // Reset processing state when data or target changes
   useEffect(() => {
     setCoefficients(null);

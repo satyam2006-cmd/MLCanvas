@@ -73,8 +73,8 @@ export function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton 
-              href="https://github.com/satyam2006-cmd/MLCanvas" 
+            <SidebarMenuButton
+              href="https://github.com/satyam2006-cmd/MLCanvas"
               tooltip="View on GitHub"
             >
               <Github className="h-4 w-4" />
@@ -86,3 +86,5 @@ export function AppSidebar() {
     </Sidebar>
   );
 }
+
+

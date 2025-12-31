@@ -12,36 +12,36 @@ export interface ColumnStats {
 
 export function detectColumnTypes(data: CsvData): Record<string, 'numeric' | 'categorical'> {
   if (!data || data.length === 0) return {};
-  
+
   const firstRow = data[0];
   const columnTypes: Record<string, 'numeric' | 'categorical'> = {};
-  
+
   for (const [key, value] of Object.entries(firstRow)) {
     // Try to convert to number
     const numValue = Number(value);
     const isNumeric = !isNaN(numValue) && value !== null && value !== '';
-    
+
     // If all values in the column are numbers, consider it numeric
     const allNumeric = data.every(row => {
       const val = row[key];
       return val === null || val === '' || !isNaN(Number(val));
     });
-    
+
     columnTypes[key] = allNumeric ? 'numeric' : 'categorical';
   }
-  
+
   return columnTypes;
 }
 
 export function generateModelRecommendations(data: any) {
   if (!data) return [];
-  
-  const isClassification = Array.isArray(data.y_train) && 
+
+  const isClassification = Array.isArray(data.y_train) &&
     data.y_train.some((y: any) => Number.isInteger(y));
-  
+
   const sampleSize = data.X_train?.length || 0;
   const featureCount = data.X_train?.[0]?.length || 0;
-  
+
   if (isClassification) {
     if (sampleSize < 1000) {
       return [
@@ -113,48 +113,48 @@ model = RandomForestRegressor(n_estimators=100, random_state=42, n_jobs=-1)`
 export function encodeCategoricalData(data: CsvData, columnTypes: Record<string, string>) {
   const encoders: Record<string, any> = {};
   const encodedData = JSON.parse(JSON.stringify(data));
-  
+
   for (const [col, type] of Object.entries(columnTypes)) {
     if (type === 'categorical') {
       const uniqueValues = [...new Set(data.map(row => row[col]))];
       const valueToIndex = Object.fromEntries(uniqueValues.map((val, idx) => [val, idx]));
-      
+
       encoders[col] = {
         type: 'label',
         classes: uniqueValues,
         transform: (val: any) => valueToIndex[val] ?? -1
       };
-      
+
       // Apply encoding
       encodedData.forEach((row: any) => {
         row[col] = valueToIndex[row[col]] ?? -1;
       });
     }
   }
-  
+
   return { data: encodedData, encoders };
 }
 
 export function normalizeData(data: CsvData, columnTypes: Record<string, string>) {
   const scalers: Record<string, any> = {};
   const normalizedData = JSON.parse(JSON.stringify(data));
-  
+
   for (const [col, type] of Object.entries(columnTypes)) {
     if (type === 'numeric') {
       const values = data.map(row => parseFloat(row[col])).filter(v => !isNaN(v));
       if (values.length === 0) continue;
-      
+
       const min = Math.min(...values);
       const max = Math.max(...values);
       const range = max - min || 1; // Avoid division by zero
-      
+
       scalers[col] = {
         type: 'minmax',
         min,
         max,
         transform: (val: number) => (val - min) / range
       };
-      
+
       // Apply normalization
       normalizedData.forEach((row: any) => {
         const numVal = parseFloat(row[col]);
@@ -162,7 +162,7 @@ export function normalizeData(data: CsvData, columnTypes: Record<string, string>
       });
     }
   }
-  
+
   return { data: normalizedData, scalers };
 }
 
@@ -174,22 +174,22 @@ export function splitDataset(
   if (!data || data.length === 0) {
     return { X_train: [], X_test: [], y_train: [], y_test: [] };
   }
-  
+
   // Shuffle data
   const shuffled = [...data].sort(() => Math.random() - 0.5);
-  
+
   // Split into features and target
   const X = shuffled.map(row => {
     const features = { ...row };
     delete features[targetColumn];
     return Object.values(features).map(v => typeof v === 'number' ? v : 0);
   });
-  
+
   const y = shuffled.map(row => row[targetColumn] || 0);
-  
+
   // Split into train/test
   const splitIndex = Math.floor(data.length * (1 - testSize));
-  
+
   return {
     X_train: X.slice(0, splitIndex),
     X_test: X.slice(splitIndex),

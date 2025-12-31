@@ -62,7 +62,7 @@ export default function RootLayout({
       <body suppressHydrationWarning className="relative">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
@@ -73,3 +73,4 @@ export default function RootLayout({
     </html>
   );
 }
+

@@ -214,13 +214,12 @@ y_pred = model.predict(X_test)
 
 # Evaluate the model
 from sklearn.metrics import ${summary.problemType === "regression" ? "mean_squared_error, r2_score" : "accuracy_score"}
-${
-  summary.problemType === "regression"
-    ? `print("R² Score:", r2_score(y_test, y_pred))
+${summary.problemType === "regression"
+        ? `print("R² Score:", r2_score(y_test, y_pred))
 print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
 ${plotCode}`
-    : `print("Accuracy:", accuracy_score(y_test, y_pred))`
-}`,
+        : `print("Accuracy:", accuracy_score(y_test, y_pred))`
+      }`,
 
     "Gradient Boosting": `${baseCode}
 from sklearn.ensemble import GradientBoosting${summary.problemType === "regression" ? "Regressor" : "Classifier"}
@@ -234,13 +233,12 @@ y_pred = model.predict(X_test)
 
 # Evaluate the model
 from sklearn.metrics import ${summary.problemType === "regression" ? "mean_squared_error, r2_score" : "accuracy_score"}
-${
-  summary.problemType === "regression"
-    ? `print("R² Score:", r2_score(y_test, y_pred))
+${summary.problemType === "regression"
+        ? `print("R² Score:", r2_score(y_test, y_pred))
 print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
 ${plotCode}`
-    : `print("Accuracy:", accuracy_score(y_test, y_pred))`
-}`,
+        : `print("Accuracy:", accuracy_score(y_test, y_pred))`
+      }`,
 
     "Naive Bayes": `${baseCode}
 from sklearn.naive_bayes import GaussianNB
@@ -290,9 +288,9 @@ print("Number of samples per cluster:", np.bincount(labels))`,
   return codes;
 };
 
-interface TrainingLabProps {}
+interface TrainingLabProps { }
 
-export function TrainingLab({}: TrainingLabProps) {
+export function TrainingLab({ }: TrainingLabProps) {
   const { toast } = useToast();
   const { targetVariable, csvData } = useContext(CsvDataContext);
   const preprocessingContext = useContext(PreprocessingContext);
@@ -313,14 +311,7 @@ export function TrainingLab({}: TrainingLabProps) {
 
   // Calculate column statistics when processedData changes
   useEffect(() => {
-    console.log("[TrainingLab] Processed data changed:", {
-      hasData: !!processedData && processedData.length > 0,
-      columns:
-        processedData && processedData[0] ? Object.keys(processedData[0]) : [],
-    });
-
     if (!processedData || processedData.length === 0) {
-      console.log("[TrainingLab] No processed data available");
       return;
     }
 
@@ -400,17 +391,7 @@ export function TrainingLab({}: TrainingLabProps) {
 
   // Update model training when preprocessed data changes
   useEffect(() => {
-    console.log("[TrainingLab] Checking for model training update", {
-      hasProcessedData: !!processedData && processedData.length > 0,
-      hasTarget: !!targetVariable,
-      hasSummary: !!preprocessingSummary,
-      isPreprocessing,
-    });
-
     if (isPreprocessing) {
-      console.log(
-        "[TrainingLab] Skipping model update - preprocessing in progress",
-      );
       return;
     }
 
@@ -676,10 +657,10 @@ export function TrainingLab({}: TrainingLabProps) {
                       {Object.values(columnStats).every(
                         (stats: any) => stats.missing === 0,
                       ) && (
-                        <div className="text-center py-4 text-muted-foreground">
-                          No missing values found in any column.
-                        </div>
-                      )}
+                          <div className="text-center py-4 text-muted-foreground">
+                            No missing values found in any column.
+                          </div>
+                        )}
                     </CardContent>
                   </Card>
 
@@ -696,11 +677,10 @@ export function TrainingLab({}: TrainingLabProps) {
                           className="flex items-center space-x-2 p-2 border rounded-md"
                         >
                           <div
-                            className={`w-3 h-3 rounded-full ${
-                              stats.type === "numeric"
-                                ? "bg-blue-500"
-                                : "bg-green-500"
-                            }`}
+                            className={`w-3 h-3 rounded-full ${stats.type === "numeric"
+                              ? "bg-blue-500"
+                              : "bg-green-500"
+                              }`}
                           />
                           <div className="flex-1 min-w-0">
                             <p className="text-sm font-medium truncate">

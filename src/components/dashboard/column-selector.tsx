@@ -120,28 +120,6 @@ export function ColumnSelector({ onPreprocess }: ColumnSelectorProps) {
 
   const handlePreprocess = async () => {
     try {
-      console.log("[ColumnSelector] Starting preprocessing...");
-
-      // Ensure we have a target variable
-      if (!targetVariable) {
-        throw new Error("Please select a target column");
-      }
-
-      // Ensure at least one column is selected
-      const selectedCount =
-        Object.values(localSelectedColumns).filter(Boolean).length;
-      if (selectedCount === 0) {
-        throw new Error("Please select at least one feature column");
-      }
-
-      console.log("[ColumnSelector] Updating context with:", {
-        selectedColumns: localSelectedColumns,
-        targetColumn: targetVariable,
-        selectedColumnsForProcessing: Object.entries(localSelectedColumns)
-          .filter(([, selected]) => selected)
-          .map(([col]) => col),
-      });
-
       // Update the context state
       setSelectedColumns(localSelectedColumns);
       setTargetColumn(targetVariable);
@@ -149,7 +127,6 @@ export function ColumnSelector({ onPreprocess }: ColumnSelectorProps) {
       // Add a small delay to ensure state updates before calling onPreprocess
       setTimeout(() => {
         if (onPreprocess) {
-          console.log("[ColumnSelector] Calling onPreprocess callback");
           onPreprocess();
         }
       }, 100);
@@ -303,7 +280,7 @@ export function ColumnSelector({ onPreprocess }: ColumnSelectorProps) {
                 </Table>
               </div>
 
-              <div className="flex justify-between items-center pt-4 border-t">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-4 border-t">
                 <div className="text-sm text-muted-foreground">
                   Target:{" "}
                   <span className="font-semibold">
@@ -313,6 +290,7 @@ export function ColumnSelector({ onPreprocess }: ColumnSelectorProps) {
                 <Button
                   onClick={handlePreprocess}
                   disabled={!targetVariable || !onPreprocess}
+                  className="w-full sm:w-auto"
                 >
                   Process Dataset
                 </Button>
@@ -322,7 +300,7 @@ export function ColumnSelector({ onPreprocess }: ColumnSelectorProps) {
 
           {/* Summary Tab */}
           <TabsContent value="summary" className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Card className="bg-blue-50">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-sm">Total Columns</CardTitle>

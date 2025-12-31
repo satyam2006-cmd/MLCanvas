@@ -25,15 +25,15 @@ export type ProcessedDataset = {
 function getMedian(values: number[]): number {
   const sorted = [...values].sort((a, b) => a - b);
   const mid = Math.floor(sorted.length / 2);
-  return sorted.length % 2 === 0 
-    ? (sorted[mid - 1] + sorted[mid]) / 2 
+  return sorted.length % 2 === 0
+    ? (sorted[mid - 1] + sorted[mid]) / 2
     : sorted[mid];
 }
 
 function detectColumnType(values: any[]): 'numeric' | 'categorical' {
   const nonNullValues = values.filter(v => v !== null && v !== undefined && v !== '');
   if (nonNullValues.length === 0) return 'categorical';
-  
+
   const numericCount = nonNullValues.filter(v => !isNaN(Number(v)) && isFinite(Number(v))).length;
   return numericCount / nonNullValues.length > 0.8 ? 'numeric' : 'categorical';
 }
@@ -95,14 +95,14 @@ export function preprocessDataset(
       const numericValues = columnValues
         .filter((v: any) => v !== null && v !== undefined && v !== '' && !isNaN(Number(v)))
         .map((v: any) => Number(v));
-      
+
       const median = numericValues.length > 0 ? getMedian(numericValues) : 0;
-      filledValues = columnValues.map((v: any) => 
+      filledValues = columnValues.map((v: any) =>
         (v === null || v === undefined || v === '' || isNaN(Number(v))) ? median : Number(v)
       );
     } else {
       // Categorical - fill with "Unknown"
-      filledValues = columnValues.map((v: any) => 
+      filledValues = columnValues.map((v: any) =>
         (v === null || v === undefined || v === '') ? 'Unknown' : String(v)
       );
     }
@@ -110,7 +110,7 @@ export function preprocessDataset(
     // Encode categorical columns
     if (columnType === 'categorical') {
       const uniqueValues = [...new Set(filledValues)];
-      
+
       if (uniqueValues.length < 15) {
         // One-Hot Encode
         summary.columnsEncoded.push({
@@ -125,7 +125,7 @@ export function preprocessDataset(
           const value = sortedValues[i];
           const columnName = `${column}_${value}`;
           finalFeatureNames.push(columnName);
-          
+
           const oneHotColumn = filledValues.map((v: any) => v === value ? 1 : 0);
           if (processedFeatures.length === 0) {
             oneHotColumn.forEach((val: number, idx: number) => {
@@ -147,7 +147,7 @@ export function preprocessDataset(
 
         const labelEncoded = labelEncode(filledValues as string[]);
         finalFeatureNames.push(column);
-        
+
         if (processedFeatures.length === 0) {
           labelEncoded.forEach((val: number, idx: number) => {
             processedFeatures[idx] = [val];
@@ -161,7 +161,7 @@ export function preprocessDataset(
     } else {
       // Numeric column - keep as is
       finalFeatureNames.push(column);
-      
+
       if (processedFeatures.length === 0) {
         filledValues.forEach((val: any, idx: number) => {
           processedFeatures[idx] = [val];
@@ -177,7 +177,7 @@ export function preprocessDataset(
   // 4. Process target variable
   const targetValues = data.map((row: any) => row[targetVariable]);
   const targetType = detectColumnType(targetValues);
-  
+
   let targetColumn: number[];
   if (targetType === 'numeric') {
     targetColumn = targetValues.map((v: any) => {
@@ -216,7 +216,7 @@ export function generateColabCode(
   featureNames: string[]
 ): Record<string, string> {
   const featuresStr = featureNames.map(f => `'${f}'`).join(', ');
-  
+
   const commonCode = `# ML Canvas - Google Colab Code
 import pandas as pd
 import numpy as np
