@@ -1,7 +1,7 @@
 import { CsvUploader } from "@/components/dashboard/csv-uploader";
 import { DataExplorer } from "@/components/dashboard/data-explorer";
 import { CsvDataProvider } from "@/contexts/csv-data-context";
-import { LearningResources } from "@/components/dashboard/learning-resources";
+import { InteractiveLearningCard } from "@/components/dashboard/interactive-learning-card";
 import {
   Card,
   CardContent,
@@ -54,11 +54,9 @@ export default function DashboardPage() {
             </Card>
           </div>
 
-          {/* Right Column - Learning Resources */}
-          <div className="lg:col-span-4">
-            <Card className="bg-background/80 backdrop-blur-md border-border/50">
-              <LearningResources />
-            </Card>
+          {/* Right Column - Interactive Card */}
+          <div className="lg:col-span-4 h-full">
+            <InteractiveLearningCard />
           </div>
         </div>
       </div>
