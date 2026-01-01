@@ -36,20 +36,31 @@ export function InteractiveLearningCard() {
             const ctx = canvas.getContext("2d");
             if (!ctx) return;
 
-            // Fill canvas with overflow color/pattern
-            ctx.fillStyle = "#3b82f6"; // Primary blue
+            // Fill canvas with gift wrap pattern/color
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, "#ef4444"); // Red
+            gradient.addColorStop(1, "#991b1b"); // Dark Red
+            ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add ribbon effect
+            ctx.fillStyle = "#fbbf24"; // Gold
+            ctx.fillRect(canvas.width / 2 - 20, 0, 40, canvas.height);
+            ctx.fillRect(0, canvas.height / 2 - 20, canvas.width, 40);
 
             // Add text to the scratch layer
             ctx.fillStyle = "white";
-            ctx.font = "bold 18px Inter, sans-serif";
+            ctx.font = "bold 24px Inter, sans-serif";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-            ctx.fillText("Scratch to Reveal Owner", canvas.width / 2, canvas.height / 2 - 10);
+            ctx.shadowColor = "rgba(0,0,0,0.5)";
+            ctx.shadowBlur = 10;
+            ctx.fillText("🎁 UNWRAP YOUR GIFT!", canvas.width / 2, canvas.height / 2);
+            ctx.shadowBlur = 0;
 
-            ctx.font = "12px Inter, sans-serif";
-            ctx.globalAlpha = 0.7;
-            ctx.fillText("Use your mouse or touch", canvas.width / 2, canvas.height / 2 + 20);
+            ctx.font = "14px Inter, sans-serif";
+            ctx.globalAlpha = 0.9;
+            ctx.fillText("Scratch to Open", canvas.width / 2, canvas.height / 2 + 40);
             ctx.globalAlpha = 1.0;
         };
 
@@ -63,7 +74,7 @@ export function InteractiveLearningCard() {
         const scratch = (x: number, y: number) => {
             ctx.globalCompositeOperation = "destination-out";
             ctx.beginPath();
-            ctx.arc(x, y, 25, 0, Math.PI * 2);
+            ctx.arc(x, y, 30, 0, Math.PI * 2);
             ctx.fill();
             checkReveal();
         };
@@ -76,7 +87,7 @@ export function InteractiveLearningCard() {
                 if (pixels[i + 3] === 0) transparentPixels++;
             }
             const percentage = (transparentPixels / (pixels.length / 4)) * 100;
-            if (percentage > 40) {
+            if (percentage > 35) {
                 setIsRevealed(true);
             }
         };
@@ -130,26 +141,32 @@ export function InteractiveLearningCard() {
                                 </div>
 
                                 <div className="text-center">
-                                    <h3 className="text-xl font-bold text-foreground">Satyam</h3>
+                                    <h3 className="text-xl font-bold text-foreground">Satyam Bhagat</h3>
                                     <p className="text-sm text-blue-500 font-semibold tracking-wide uppercase">is the owner</p>
                                     <p className="text-xs text-muted-foreground mt-1">satyam2006-cmd</p>
                                 </div>
 
-                                <div className="flex gap-3 mt-2">
-                                    <Button variant="outline" size="icon" className="rounded-full" asChild>
+                                <div className="flex flex-wrap items-center justify-center gap-2 mt-2">
+                                    <Button variant="outline" size="icon" className="rounded-full h-9 w-9" asChild>
                                         <a href="https://www.linkedin.com/in/satyam-bhagat2006/" target="_blank" rel="noopener noreferrer">
                                             <Linkedin className="h-4 w-4" />
                                         </a>
                                     </Button>
-                                    <Button variant="outline" size="icon" className="rounded-full" asChild>
-                                        <a href="mailto:satyam.bhagat2006@gmail.com">
+                                    <Button variant="outline" size="icon" className="rounded-full h-9 w-9" asChild>
+                                        <a href="mailto:satyambhagat200623@gmail.com">
                                             <Mail className="h-4 w-4" />
                                         </a>
                                     </Button>
-                                    <Button variant="outline" size="sm" className="rounded-full gap-2 border-orange-500/50 hover:bg-orange-500/10 text-orange-600" asChild>
+                                    <Button variant="secondary" size="sm" className="rounded-full gap-2 bg-blue-500/10 text-blue-600 hover:bg-blue-500/20 h-9" asChild>
+                                        <a href="https://satyambhagats-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">
+                                            <ExternalLink className="h-4 w-4" />
+                                            Portfolio
+                                        </a>
+                                    </Button>
+                                    <Button variant="outline" size="sm" className="rounded-full gap-2 border-orange-500/50 hover:bg-orange-500/10 text-orange-600 h-9" asChild>
                                         <a href="https://github.com/satyam2006-cmd/MLCanvas" target="_blank" rel="noopener noreferrer">
                                             <Star className="h-4 w-4 fill-orange-500" />
-                                            Star on GitHub
+                                            Star
                                         </a>
                                     </Button>
                                 </div>
@@ -158,7 +175,7 @@ export function InteractiveLearningCard() {
                                     onClick={() => setIsFlipped(true)}
                                     className="mt-6 w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl shadow-lg shadow-blue-500/20 group/btn"
                                 >
-                                    Learn More
+                                    Learn more about ML
                                     <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                                 </Button>
                             </div>
