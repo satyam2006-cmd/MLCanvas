@@ -13,9 +13,9 @@ export default function LabLayout({
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset className="min-h-screen bg-background">
+      <SidebarInset className="min-h-screen bg-background min-w-0">
         <Header />
-        <main className="p-4 lg:p-6">{children}</main>
+        <main className="p-4 lg:p-6 min-w-0 overflow-x-hidden">{children}</main>
       </SidebarInset>
     </SidebarProvider>
   );
