@@ -10,7 +10,7 @@ export default function HomePage() {
 
   const dockItems = [
     { icon: <Home size={18} color="white" />, label: 'Home', onClick: () => router.push('/dashboard') },
-    { icon: <FlaskConical size={18} color="white" />, label: 'Lab', onClick: () => router.push('/learning-lab') },
+    { icon: <FlaskConical size={18} color="white" />, label: 'Lab', onClick: () => router.push('/lab') },
     {
       icon: <img src="/icons/ml-icon.png" alt="ML" style={{ width: 18, height: 18, objectFit: 'contain', filter: 'invert(1)' }} />,
       label: 'ML',
