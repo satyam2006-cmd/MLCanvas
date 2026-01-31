@@ -578,15 +578,23 @@ const Hyperspeed = ({
                         getDistortion: distortion_vertex
                     };
                 }
-                this.container = container;
-                this.renderer = new THREE.WebGLRenderer({
-                    antialias: false,
-                    alpha: true
-                });
-                this.renderer.setSize(container.offsetWidth, container.offsetHeight, false);
-                this.renderer.setPixelRatio(window.devicePixelRatio);
-                this.composer = new EffectComposer(this.renderer);
-                container.append(this.renderer.domElement);
+                try {
+                    this.renderer = new THREE.WebGLRenderer({
+                        antialias: false,
+                        alpha: true
+                    });
+                    this.renderer.setSize(container.offsetWidth, container.offsetHeight, false);
+                    this.renderer.setPixelRatio(window.devicePixelRatio);
+                    this.composer = new EffectComposer(this.renderer);
+                    container.append(this.renderer.domElement);
+                } catch (e) {
+                    console.error("Hyperspeed: WebGL initialization failed", e);
+                    this.renderer = null;
+                    this.initFailed = true;
+                    return;
+                }
+
+                this.initFailed = false; // Explicitly set false if successful
 
                 this.camera = new THREE.PerspectiveCamera(
                     options.fov,
@@ -643,10 +651,13 @@ const Hyperspeed = ({
                 this.onTouchEnd = this.onTouchEnd.bind(this);
                 this.onContextMenu = this.onContextMenu.bind(this);
 
-                window.addEventListener('resize', this.onWindowResize.bind(this));
+                this.onWindowResize = this.onWindowResize.bind(this);
+
+                window.addEventListener('resize', this.onWindowResize);
             }
 
             onWindowResize() {
+                if (!this.renderer) return;
                 const width = this.container.offsetWidth;
                 const height = this.container.offsetHeight;
 
@@ -657,6 +668,7 @@ const Hyperspeed = ({
             }
 
             initPasses() {
+                if (!this.renderer) return; // Skip if no renderer
                 this.renderPass = new RenderPass(this.scene, this.camera);
                 this.bloomPass = new EffectPass(
                     this.camera,
@@ -709,6 +721,7 @@ const Hyperspeed = ({
             }
 
             init() {
+                if (this.initFailed) return;
                 this.initPasses();
                 const options = this.options;
                 this.road.init();
@@ -730,7 +743,9 @@ const Hyperspeed = ({
 
                 this.container.addEventListener('contextmenu', this.onContextMenu);
 
-                this.tick();
+                if (this.renderer) {
+                    this.tick();
+                }
             }
 
             onMouseDown(ev) {
@@ -816,10 +831,20 @@ const Hyperspeed = ({
                     this.composer.dispose();
                 }
                 if (this.scene) {
+                    this.scene.traverse((object) => {
+                        if (object.geometry) object.geometry.dispose();
+                        if (object.material) {
+                            if (Array.isArray(object.material)) {
+                                object.material.forEach(material => material.dispose());
+                            } else {
+                                object.material.dispose();
+                            }
+                        }
+                    });
                     this.scene.clear();
                 }
 
-                window.removeEventListener('resize', this.onWindowResize.bind(this));
+                window.removeEventListener('resize', this.onWindowResize);
                 if (this.container) {
                     this.container.removeEventListener('mousedown', this.onMouseDown);
                     this.container.removeEventListener('mouseup', this.onMouseUp);
