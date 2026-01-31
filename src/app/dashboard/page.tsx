@@ -13,14 +13,60 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Dashboard | ML Canvas",
+  title: "ML Canvas Dashboard – Explore, Preprocess & Visualize Machine Learning Data",
   description:
-    "ML Canvas dashboard to preprocess datasets and explore ML workflows.",
+    "ML Canvas Dashboard lets you upload datasets, preprocess data, explore features, visualize patterns, and learn machine learning workflows interactively. Perfect for students and beginners in Data Science and AI.",
+  keywords: [
+    "machine learning",
+    "data science",
+    "ml dashboard",
+    "dataset preprocessing",
+    "data cleaning",
+    "feature engineering",
+    "machine learning visualization",
+    "ml education",
+    "learn machine learning",
+    "interactive ml",
+    "csv data explorer",
+    "ml canvas",
+    "ai learning platform",
+    "ml lab",
+    "ml playground",
+    "data analysis",
+    "MLCanvas",
+    "mlcanvas",
+  ],
   alternates: {
-    canonical: "/dashboard",
+    canonical: "https://ml-canvas-silk.vercel.app/dashboard",
   },
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "ML Canvas Dashboard – Interactive Machine Learning Lab",
+    description:
+      "Upload datasets, preprocess data, visualize features and learn Machine Learning step-by-step with ML Canvas.",
+    url: "https://ml-canvas-silk.vercel.app/dashboard",
+    siteName: "ML Canvas",
+    images: [
+      {
+        url: "https://ml-canvas-silk.vercel.app/og-image.png", // optional
+        width: 1200,
+        height: 630,
+        alt: "ML Canvas Dashboard",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ML Canvas Dashboard – Interactive ML Learning Platform",
+    description:
+      "Explore, preprocess, and visualize datasets while learning Machine Learning interactively.",
+  },
 };
+
 
 export default function DashboardPage() {
   return (

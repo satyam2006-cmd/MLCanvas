@@ -30,7 +30,7 @@ export function OwnerSidebar() {
 
                     <div className="text-center">
                         <h3 className="text-xl font-bold text-foreground">Satyam Bhagat</h3>
-                        <p className="text-sm text-blue-500 font-semibold tracking-wide uppercase">Owner</p>
+                        <p className="text-sm text-blue-500 font-semibold tracking-wide uppercase">Owner and Developement</p>
                         <p className="text-xs text-muted-foreground mt-1">satyam2006-cmd</p>
                     </div>
 
@@ -41,7 +41,7 @@ export function OwnerSidebar() {
                             </a>
                         </Button>
                         <Button variant="outline" size="icon" className="rounded-full h-9 w-9" asChild>
-                            <a href="mailto:satyambhagat200623@gmail.com">
+                            <a href="mailto:satyambhagat20061023@gmail.com">
                                 <Mail className="h-4 w-4" />
                             </a>
                         </Button>
