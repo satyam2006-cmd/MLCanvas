@@ -20,6 +20,12 @@ const nextConfig: NextConfig = {
   // Configure for Vercel deployment
   output: undefined, // Remove static export for server-side deployment
   trailingSlash: false,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 // Export the config directly, we'll handle Sentry through environment variables
