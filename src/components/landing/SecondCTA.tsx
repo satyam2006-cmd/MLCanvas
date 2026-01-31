@@ -18,7 +18,7 @@ export default function SecondCTA() {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => router.push("/learning-lab")}
+                        onClick={() => router.push("/lab")}
                         className="group flex items-center gap-2 text-lg font-medium text-black border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors"
                     >
                         Start Learning
