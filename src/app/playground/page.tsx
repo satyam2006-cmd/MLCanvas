@@ -5,10 +5,10 @@ export const metadata: Metadata = {
   title: "ML Playground | ML Canvas",
   description:
     "Interactive playground to preprocess data and train machine learning models.",
-  alternates: {
-    canonical: "/playground",
+  robots: {
+    index: false,
+    follow: false,
   },
-  robots: "index, follow",
 };
 
 export default function PlaygroundPage() {

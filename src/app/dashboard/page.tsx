@@ -36,12 +36,10 @@ export const metadata: Metadata = {
     "MLCanvas",
     "mlcanvas",
   ],
-  alternates: {
-    canonical: "https://ml-canvas-silk.vercel.app/dashboard",
-  },
+
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
   openGraph: {
     title: "ML Canvas Dashboard – Interactive Machine Learning Lab",

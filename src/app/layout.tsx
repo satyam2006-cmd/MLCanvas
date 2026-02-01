@@ -15,6 +15,9 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ml-canvas-silk.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
   title: "ML Canvas – Learn Machine Learning Visually",
   description:
     "ML Canvas helps you understand machine learning preprocessing, models, and data pipelines interactively.",
