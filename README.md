@@ -173,4 +173,3 @@ Open an issue or submit a PR 🚀
 ## 📜 License
 MIT License
 Free to use, modify, and learn from.
-# MLCanvas
