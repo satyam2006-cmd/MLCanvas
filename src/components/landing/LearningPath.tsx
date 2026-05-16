@@ -1,66 +1,47 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const steps = [
-    {
-        step: "01",
-        title: "Instant EDA",
-        description: "Upload your dataset and instantly visualize tailored exploratory data analysis insights.",
-    },
-    {
-        step: "02",
-        title: "Feature Selection",
-        description: "Intuitively select features and drop columns to curate the perfect training set.",
-    },
-    {
-        step: "03",
-        title: "Target Definition",
-        description: "Simply click to define your target variable and configure the learning task.",
-    },
-    {
-        step: "04",
-        title: "Code Generation",
-        description: "Export clean, production-ready code and processed datasets for immediate use.",
-    },
+    { num: "01", title: "Explore", desc: "Dive into the lab and pick a module.", bg: "bg-blue-600", text: "text-white" },
+    { num: "02", title: "Visualize", desc: "See the data flow through the network.", bg: "bg-white", text: "text-slate-900" },
+    { num: "03", title: "Modify", desc: "Break things to learn how they work.", bg: "bg-white", text: "text-slate-900" },
+    { num: "04", title: "Master", desc: "Gain intuition that no textbook can give.", bg: "bg-slate-900", text: "text-white" },
 ];
 
 export default function LearningPath() {
     return (
-        <section className="py-24 px-6 md:px-12 bg-white">
+        <section className="py-32 px-6 bg-slate-900 text-white overflow-hidden">
             <div className="max-w-7xl mx-auto">
-                <div className="mb-16 md:mb-24">
-                    <h2 className="text-3xl md:text-5xl font-thin tracking-tight text-black mb-4">
-                        How It Works
+                <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                    <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none">
+                        The<br/><span className="text-blue-500">Process</span>
                     </h2>
-                    <div className="h-0.5 w-24 bg-black/10" />
+                    <p className="max-w-xs text-lg font-bold uppercase tracking-tight text-slate-400 border-l-4 border-blue-500 pl-4">
+                        From zero to intuition in four clear steps.
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 relative">
-                    {/* Connector Line (Desktop) */}
-                    <div className="hidden lg:block absolute top-6 left-0 w-full h-px bg-gradient-to-r from-gray-200 via-gray-200 to-transparent z-0" />
-
-                    {steps.map((item, index) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {steps.map((step, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.15 }}
-                            viewport={{ once: true }}
-                            className="relative z-10 group"
+                            transition={{ delay: index * 0.1 }}
+                            className={`${step.bg} ${step.text} border-2 border-slate-900 p-10 rounded-3xl flex flex-col gap-8 h-full shadow-[6px_6px_0px_0px_rgba(59,130,246,0.5)]`}
                         >
-                            <div className="flex items-center gap-4 mb-4">
-                                <span className="text-5xl font-thin text-black/10 group-hover:text-black/20 transition-colors duration-300 font-serif">
-                                    {item.step}
-                                </span>
-                                <div className="lg:hidden h-px bg-gray-200 flex-1" />
+                            <div className={`text-5xl font-black tracking-tighter opacity-10`}>
+                                {step.num}
                             </div>
-                            <h3 className="text-xl font-medium text-black mb-2">
-                                {item.title}
-                            </h3>
-                            <p className="text-sm text-gray-500 leading-relaxed max-w-xs">
-                                {item.description}
-                            </p>
+                            <div className="space-y-3">
+                                <h3 className="text-2xl font-black uppercase tracking-tight">
+                                    {step.title}
+                                </h3>
+                                <p className="text-base font-bold leading-relaxed opacity-80">
+                                    {step.desc}
+                                </p>
+                            </div>
                         </motion.div>
                     ))}
                 </div>

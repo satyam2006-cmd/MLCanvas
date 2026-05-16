@@ -1,38 +1,42 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
-import { motion } from "motion/react";
 
 export default function SecondCTA() {
     const router = useRouter();
 
     return (
-        <section className="py-32 bg-white text-center">
-            <div className="max-w-2xl mx-auto px-6 space-y-8">
-                <h2 className="text-4xl md:text-5xl font-light text-black tracking-tight">
-                    Ready to explore?
-                </h2>
+        <section className="py-40 px-6 bg-white flex flex-col items-center justify-center relative overflow-hidden">
+            <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
+                 style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
+            />
 
-                <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-4">
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => router.push("/lab")}
-                        className="group flex items-center gap-2 text-lg font-medium text-black border-b border-black pb-1 hover:text-black/70 hover:border-black/70 transition-colors"
-                    >
-                        Start Learning
-                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
+            <div className="relative z-10 max-w-4xl text-center space-y-10">
+                <motion.h2 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    className="text-6xl md:text-9xl font-black uppercase tracking-tighter leading-[0.85]"
+                >
+                    Stop reading<br/><span className="text-blue-600 underline decoration-8 underline-offset-[12px]">Start Seeing</span>
+                </motion.h2>
 
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => router.push("/dashboard")}
-                        className="px-8 py-3 bg-black text-white rounded-full text-sm font-medium hover:bg-black/90 transition-colors shadow-lg hover:shadow-xl"
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-10">
+                    <button
+                        onClick={() => router.push('/dashboard')}
+                        className="group w-full sm:w-auto px-10 py-6 bg-slate-900 text-white text-xl font-black uppercase tracking-tighter rounded-2xl shadow-[6px_6px_0px_0px_rgba(37,99,235,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all flex items-center justify-center gap-4"
                     >
-                        Open Dashboard
-                    </motion.button>
+                        Get Access Now
+                        <ArrowRight size={24} />
+                    </button>
+                    
+                    <button
+                        onClick={() => router.push('/lab')}
+                        className="w-full sm:w-auto px-10 py-6 bg-white border-2 border-slate-900 text-xl font-black uppercase tracking-tighter rounded-2xl shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all"
+                    >
+                        Browse Lab
+                    </button>
                 </div>
             </div>
         </section>

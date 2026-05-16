@@ -158,4 +158,18 @@
       transform: translateY(0px);
     }
   }
+
+  .cursor-image {
+    position: fixed;
+    pointer-events: none;
+    z-index: 10;
+    will-change: transform, clip-path, opacity;
+  }
+
+  .cursor-image__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+  }
 }

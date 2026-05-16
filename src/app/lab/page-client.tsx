@@ -8,12 +8,14 @@ import { Button } from "@/components/ui/button";
 import { NotebookViewer } from "@/components/notebook-viewer";
 import { NotebookFile } from "@/lib/notebook-explorer";
 import { Folder, FileText, ChevronRight, ExternalLink, ChevronDown, BookOpen, ArrowRight, Terminal } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { VisualLearningCarousel } from "@/components/lab/visual-learning-carousel";
 import { NOTEBOOK_CATEGORIES, SOURCES, Category, Notebook } from "./notebook-data";
 
 export default function LabPage() {
   const [selectedFile, setSelectedFile] = useState<NotebookFile | null>(null);
   const [isMainSectionExpanded, setIsMainSectionExpanded] = useState(true);
+  const router = useRouter();
 
   const handleBack = () => {
     setSelectedFile(null);
@@ -23,12 +25,55 @@ export default function LabPage() {
     setIsMainSectionExpanded(!isMainSectionExpanded);
   };
 
+  // Flatten all notebooks for sequential navigation
+  const allNotebooks = NOTEBOOK_CATEGORIES.flatMap(cat => {
+    if (cat.subcategories) {
+      return cat.subcategories.flatMap(sub => sub.notebooks.map(nb => ({ ...nb, categoryId: cat.id })));
+    }
+    return (cat.notebooks || []).map(nb => ({ ...nb, categoryId: cat.id }));
+  });
+
+  const handleNext = () => {
+    if (!selectedFile) return;
+    const currentIndex = allNotebooks.findIndex(nb => 
+      nb.path === selectedFile.path || 
+      (nb.url.includes('/main/') && decodeURIComponent(nb.url.split('/main/')[1]) === selectedFile.path)
+    );
+    if (currentIndex !== -1 && currentIndex < allNotebooks.length - 1) {
+      const nextNb = allNotebooks[currentIndex + 1];
+      const path = nextNb.path || (nextNb.url.includes('/main/') ? decodeURIComponent(nextNb.url.split('/main/')[1]) : '');
+      setSelectedFile({ name: nextNb.title, path, type: 'file' });
+      window.scrollTo(0, 0);
+    }
+  };
+
+  const handlePrev = () => {
+    if (!selectedFile) return;
+    const currentIndex = allNotebooks.findIndex(nb => 
+      nb.path === selectedFile.path || 
+      (nb.url.includes('/main/') && decodeURIComponent(nb.url.split('/main/')[1]) === selectedFile.path)
+    );
+    if (currentIndex > 0) {
+      const prevNb = allNotebooks[currentIndex - 1];
+      const path = prevNb.path || (prevNb.url.includes('/main/') ? decodeURIComponent(prevNb.url.split('/main/')[1]) : '');
+      setSelectedFile({ name: prevNb.title, path, type: 'file' });
+      window.scrollTo(0, 0);
+    }
+  };
+
   if (selectedFile) {
+    const currentIndex = allNotebooks.findIndex(nb => 
+      nb.path === selectedFile.path || 
+      (nb.url.includes('/main/') && decodeURIComponent(nb.url.split('/main/')[1]) === selectedFile.path)
+    );
+
     return (
       <div className="max-w-6xl mx-auto space-y-6">
         <NotebookViewer
           notebookPath={selectedFile.path}
           onBack={handleBack}
+          onNext={currentIndex < allNotebooks.length - 1 ? handleNext : undefined}
+          onPrev={currentIndex > 0 ? handlePrev : undefined}
         />
       </div>
     );
@@ -70,11 +115,12 @@ export default function LabPage() {
               </p>
             </div>
           </div>
-          <Button asChild className="w-full lg:w-auto rounded-xl px-6 py-6 bg-blue-500 hover:bg-blue-600 shadow-lg shadow-blue-500/20 transition-all active:scale-95 text-base font-semibold">
-            <a href="https://quickref.me/python" target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="mr-2 h-5 w-5" />
-              Python Quick Reference
-            </a>
+          <Button 
+            variant="outline" 
+            className="mt-6 border-blue-500/30 text-blue-500 hover:bg-blue-500 hover:text-white rounded-xl font-bold transition-all duration-300"
+            onClick={() => router.push('/lab/python-basics')}
+          >
+            Learn Python Basics
           </Button>
         </div>
       </motion.div>
@@ -115,7 +161,15 @@ export default function LabPage() {
               <CardContent className="p-6 md:p-8 space-y-10">
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
                   {NOTEBOOK_CATEGORIES.map((category, idx) => (
-                    <NotebookCategoryCard key={category.id} category={category} index={idx} />
+                    <NotebookCategoryCard 
+                      key={category.id} 
+                      category={category} 
+                      index={idx} 
+                      onSelect={(nb) => {
+                        const path = nb.path || (nb.url.includes('/main/') ? decodeURIComponent(nb.url.split('/main/')[1]) : '');
+                        setSelectedFile({ name: nb.title, path, type: 'file' });
+                      }}
+                    />
                   ))}
                 </div>
 
@@ -156,7 +210,7 @@ export default function LabPage() {
   );
 }
 
-function NotebookCategoryCard({ category, index }: { category: Category, index: number }) {
+function NotebookCategoryCard({ category, index, onSelect }: { category: Category, index: number, onSelect: (nb: Notebook) => void }) {
 
   return (
     <motion.div
@@ -189,7 +243,7 @@ function NotebookCategoryCard({ category, index }: { category: Category, index: 
                 </span>
                 <div className="space-y-1">
                   {sub.notebooks.map((nb, j) => (
-                    <NotebookLink key={j} notebook={nb} />
+                    <NotebookLink key={j} notebook={nb} onClick={() => onSelect(nb)} />
                   ))}
                 </div>
               </div>
@@ -197,7 +251,7 @@ function NotebookCategoryCard({ category, index }: { category: Category, index: 
           ) : (
             <div className="space-y-1">
               {category.notebooks?.map((nb, i) => (
-                <NotebookLink key={i} notebook={nb} />
+                <NotebookLink key={i} notebook={nb} onClick={() => onSelect(nb)} />
               ))}
             </div>
           )}
@@ -207,13 +261,11 @@ function NotebookCategoryCard({ category, index }: { category: Category, index: 
   );
 }
 
-function NotebookLink({ notebook }: { notebook: Notebook }) {
+function NotebookLink({ notebook, onClick }: { notebook: Notebook, onClick: () => void }) {
   return (
-    <a
-      href={notebook.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-start gap-2 p-2 rounded-lg hover:bg-blue-500/5 group/link transition-all border border-transparent hover:border-blue-500/10"
+    <button
+      onClick={onClick}
+      className="w-full flex items-start gap-2 p-2 rounded-lg hover:bg-blue-500/5 group/link transition-all border border-transparent hover:border-blue-500/10 text-left"
     >
       <FileText className="h-4 w-4 mt-0.5 text-orange-500 shrink-0" />
       <div className="flex flex-col">
@@ -226,7 +278,7 @@ function NotebookLink({ notebook }: { notebook: Notebook }) {
           </span>
         )}
       </div>
-      <ExternalLink className="h-3 w-3 ml-auto opacity-0 group-hover/link:opacity-50 transition-all shrink-0" />
-    </a>
+      <ChevronRight className="h-3 w-3 ml-auto opacity-0 group-hover/link:opacity-50 transition-all shrink-0" />
+    </button>
   );
 }
