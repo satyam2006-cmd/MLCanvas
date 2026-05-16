@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import path from 'path';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -12,22 +13,15 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
-  experimental: {
-    serverActions: {
-      bodySizeLimit: '2mb',
-    },
-  },
-  // Configure for Vercel deployment
-  output: undefined, // Remove static export for server-side deployment
-  trailingSlash: false,
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Force Next.js to use the current directory as the root
+  // to avoid confusion with parent directory lockfiles
+  outputFileTracingRoot: path.join(__dirname),
 };
 
-// Export the config directly, we'll handle Sentry through environment variables
-// You can enable Sentry by setting NEXT_PUBLIC_SENTRY_DSN in your environment
-module.exports = nextConfig;
+export default nextConfig;

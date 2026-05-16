@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
-import PythonBasicsClient from "./page-client";
+import PythonBasicsClient from "./PythonBasicsClient";
 
-export default async function PythonBasicsPage() {
+export default async function Page() {
   const filePath = path.join(process.cwd(), "python.md");
   let markdownContent = "";
   
