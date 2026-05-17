@@ -81,7 +81,7 @@ export function parseNotebookFromPath(filePath: string, category: string): Parse
 }
 
 export function loadAllNotebooks(): ParsedNotebook[] {
-  const notebooksDir = path.join(process.cwd(), 'Machine-Learning-Notebooks-master');
+  const notebooksDir = path.join(process.cwd(), 'Machine-Learning-Notebooks');
   const notebooks: ParsedNotebook[] = [];
   
   try {

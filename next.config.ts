@@ -22,6 +22,11 @@ const nextConfig: NextConfig = {
   // Force Next.js to use the current directory as the root
   // to avoid confusion with parent directory lockfiles
   outputFileTracingRoot: path.join(__dirname),
+  experimental: {
+    outputFileTracingIncludes: {
+      '/api/**/*': ['./Machine-Learning-Notebooks/**/*'],
+    },
+  },
 };
 
 // Trigger deployment at 2026-05-16

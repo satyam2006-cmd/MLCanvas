@@ -3,7 +3,7 @@ import { getDirectoryStructure } from '@/lib/notebook-explorer';
 
 export async function GET() {
   try {
-    const notebooksPath = 'Machine-Learning-Notebooks-master';
+    const notebooksPath = 'Machine-Learning-Notebooks';
     const structure = getDirectoryStructure(notebooksPath);
     return NextResponse.json(structure);
   } catch (error) {
