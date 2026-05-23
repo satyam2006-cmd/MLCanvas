@@ -17,7 +17,7 @@ export default function TargetAudienceSection() {
                 <h3 className="text-sm font-black uppercase tracking-[0.3em] text-slate-400">
                     Who is this for?
                 </h3>
-                
+
                 <div className="flex flex-wrap justify-center gap-4">
                     {audiences.map((audience, index) => (
                         <motion.div
@@ -25,7 +25,7 @@ export default function TargetAudienceSection() {
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ delay: index * 0.1 }}
-                            whileHover={{ y: -4, shadow: "8px 8px 0px 0px rgba(15,23,42,1)" }}
+                            whileHover={{ y: -4, boxShadow: "8px 8px 0px 0px rgba(15,23,42,1)" }}
                             className={`${audience.color} border-2 border-slate-900 px-4 py-2 sm:px-8 sm:py-4 rounded-xl sm:rounded-2xl shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] text-sm sm:text-lg font-black uppercase tracking-tight cursor-default transition-all`}
                         >
                             {audience.label}
