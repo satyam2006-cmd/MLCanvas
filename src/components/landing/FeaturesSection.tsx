@@ -32,13 +32,13 @@ const features = [
 
 export default function FeaturesSection() {
     return (
-        <section className="py-32 px-6 md:px-12 bg-white border-y-2 border-slate-900/10">
+        <section className="py-16 sm:py-24 md:py-32 px-6 md:px-12 bg-white border-y-2 border-slate-900/10">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-20 text-center md:text-left">
                     <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-6xl font-black uppercase tracking-tighter"
+                        className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter"
                     >
                         The <span className="text-blue-600 underline decoration-4 underline-offset-8">Capabilities</span>
                     </motion.h2>

@@ -26,6 +26,11 @@ const CursorImageEffect = ({
     
     if (!triggerElement) return;
 
+    // Disable cursor trail on touch/mobile devices
+    if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
+      return;
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
       const x = e.clientX;
       const y = e.clientY;

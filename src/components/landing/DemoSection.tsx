@@ -15,17 +15,17 @@ export default function DemoSection() {
     }, []);
 
     return (
-        <section className="py-32 px-6 bg-slate-50 border-b-2 border-slate-900/10 overflow-hidden">
+        <section className="py-16 sm:py-24 md:py-32 px-6 bg-slate-50 border-b-2 border-slate-900/10 overflow-hidden">
             <div className="max-w-6xl mx-auto flex flex-col items-center gap-16">
                 <div className="text-center space-y-4">
                     <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-7xl font-black uppercase tracking-tighter"
+                        className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter"
                     >
                         See the <span className="text-blue-600">Mechanics</span>
                     </motion.h2>
-                    <p className="text-slate-500 font-bold uppercase tracking-widest text-sm">Interactive decision boundary visualization</p>
+                    <p className="text-slate-500 font-bold uppercase tracking-widest text-xs sm:text-sm">Interactive decision boundary visualization</p>
                 </div>
 
                 <motion.div
@@ -73,11 +73,11 @@ export default function DemoSection() {
                         />
                     </div>
 
-                    <div className="absolute bottom-6 right-6 bg-white border-2 border-slate-900 p-3 rounded-xl shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
-                        <span className="text-xs font-black uppercase tracking-tight">Confidence: 96.2%</span>
+                    <div className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 bg-white border-2 border-slate-900 p-2 sm:p-3 rounded-xl shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
+                        <span className="text-[10px] sm:text-xs font-black uppercase tracking-tight">Confidence: 96.2%</span>
                     </div>
-
-                    <div className="absolute top-16 left-6 flex flex-col gap-3">
+ 
+                    <div className="absolute top-16 left-6 hidden sm:flex flex-col gap-3">
                         {[0.8, 0.6, 0.9].map((val, i) => (
                             <div key={i} className="w-40 h-1.5 bg-slate-100 rounded-full overflow-hidden border border-slate-900/10">
                                 <motion.div 

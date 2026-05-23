@@ -79,7 +79,7 @@ export default function HomePage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border-2 border-slate-900 bg-white shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] mb-10"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border-2 border-slate-900 bg-white shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] mb-6 sm:mb-10"
           >
             <Zap size={14} className="text-blue-600 fill-blue-600" />
             <span className="text-[11px] font-black uppercase tracking-[0.2em]">The Visual ML Environment</span>
@@ -89,7 +89,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-7xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] mb-12 relative"
+            className="text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] mb-12 relative"
           >
             ML<span className="text-blue-600 relative">
               CANVAS
@@ -114,7 +114,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="max-w-2xl text-xl md:text-2xl font-bold leading-tight mb-14 text-slate-700"
+            className="max-w-2xl text-lg sm:text-xl md:text-2xl font-bold leading-tight mb-8 sm:mb-14 text-slate-700"
           >
             REDEFINING HOW YOU UNDERSTAND MACHINE LEARNING.
             A REFINED CANVAS FOR VISUALIZING THE INNER WORKINGS OF AI.
@@ -125,24 +125,24 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-8 mt-4"
+            className="flex flex-wrap justify-center gap-4 sm:gap-8 mt-4"
           >
             <Link004
               href="/dashboard"
-              className="text-2xl font-black uppercase tracking-tighter py-4 px-6 border-black border-2 border-radius-50"
+              className="text-lg sm:text-2xl font-black uppercase tracking-tighter py-3 px-5 sm:py-4 sm:px-6 border-black border-2 border-radius-50"
             >
               Start Exploring
             </Link004>
             <Link004
               href="/lab"
-              className="text-2xl font-black uppercase tracking-tighter py-4 px-6 border-black border-2 border-radius-50"
+              className="text-lg sm:text-2xl font-black uppercase tracking-tighter py-3 px-5 sm:py-4 sm:px-6 border-black border-2 border-radius-50"
             >
               Enter Lab
             </Link004>
           </motion.div>
         </div>
 
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+        <div className="absolute bottom-6 sm:bottom-12 md:bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
@@ -163,7 +163,18 @@ export default function HomePage() {
         <Footer />
       </div>
 
-      {/* --- DOCK (Fixed Right) --- */}
+      {/* --- DOCK (Fixed Bottom on Mobile) --- */}
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 h-auto md:hidden">
+        <Dock
+          items={dockItems}
+          panelHeight={60}
+          baseItemSize={44}
+          magnification={60}
+          position="bottom"
+        />
+      </div>
+
+      {/* --- DOCK (Fixed Right on Desktop) --- */}
       <div className="fixed top-1/2 right-6 -translate-y-1/2 z-50 h-auto hidden md:block">
         <Dock
           items={dockItems}
