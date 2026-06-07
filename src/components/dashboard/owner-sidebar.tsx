@@ -46,7 +46,7 @@ export function OwnerSidebar() {
                             </a>
                         </Button>
                         <Button variant="secondary" size="sm" className="rounded-full gap-2 bg-blue-500/10 text-blue-600 hover:bg-blue-500/20 h-9" asChild>
-                            <a href="https://satyambhagats-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://satyambhagat.is-a.dev/" target="_blank" rel="noopener noreferrer">
                                 <ExternalLink className="h-4 w-4" />
                                 Portfolio
                             </a>
